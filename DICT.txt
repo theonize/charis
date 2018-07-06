@@ -1,0 +1,35 @@
+TODO
+----
+H3518, kabah -> quench, quenched
+  https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H3518&t=KJV
+
+H210, Adam -> man
+  https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H120&t=KJV
+
+H6918, qawdesh -> holy
+  http://biblehub.com/hebrew/6918.htm
+G40, hagios -> holy
+  http://biblehub.com/greek/40.htm
+
+
+H2803, chashab -> reckon
+  https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H2803&t=KJV
+
+
+H3373, yare' -> fear/afraid
+  https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H3373&t=KJV
+
+
+
+DONE
+----
+H3068 Yahweh -> Yahweh
+  
+H3974, ma'owr -> luminary, luminaries, illumined, illumination
+
+H5216, n'r -> lamp
+
+H7225, reyshith ~> firstfruit
+  http://biblehub.com/hebrew/7225.htm
+  Next JER 26:1
+
