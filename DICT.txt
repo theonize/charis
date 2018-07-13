@@ -19,6 +19,32 @@ H2803, chashab -> reckon
 H3373, yare' -> fear/afraid
   https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H3373&t=KJV
 
+???, pneuma -> [trans?]
+
+???, angelos -> [trans?]
+
+???, charis -> ?charity?
+
+G1342, dikaios -> righteous?just
+
+
+Firstfruit:
+  H7225, reyshith
+    http://biblehub.com/hebrew/7225.htm
+    Next JER 26:1
+  G536, aparche
+    https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=G536&t=KJV
+
+???, theos -> God
+
+Dimensions:
+  G4114, platos -> breadth
+  G3372, mekos -> length
+  G899, depth -> bathos
+  G5311, height -> hypsos
+
+
+G5281
 
 
 DONE
@@ -28,8 +54,4 @@ H3068 Yahweh -> Yahweh
 H3974, ma'owr -> luminary, luminaries, illumined, illumination
 
 H5216, n'r -> lamp
-
-H7225, reyshith ~> firstfruit
-  http://biblehub.com/hebrew/7225.htm
-  Next JER 26:1
 
