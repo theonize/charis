@@ -14,16 +14,16 @@ G40, hagios -> holy
 
 H2803, chashab -> reckon
   https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H2803&t=KJV
+  
+  
+H3405, yada -> know
+  https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?t=kjv&strongs=h3045
 
 
 H3373, yare' -> fear/afraid
   https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H3373&t=KJV
+  
 
-???, pneuma -> [trans?]
-
-???, angelos -> [trans?]
-
-???, charis -> ?charity?
 
 G1342, dikaios -> righteous?just
 
@@ -45,6 +45,17 @@ Dimensions:
 
 
 G5281
+
+
+  TRANSLITERALS
+  -------------
+  ???, pneuma -> [trans?]
+
+  ???, angelos -> [trans?]
+
+  ???, charis -> ?charity?
+  
+  ???, diakonos -> deacon, diaconate
 
 
 DONE
