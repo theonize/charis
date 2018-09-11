@@ -56,6 +56,7 @@ TRANSLITERALS
 -------------
 ???, pneuma -> [trans?]
 
+<<<<<<< HEAD
 ???, angelos -> [trans?]
 
 ???, charis -> ?charity?
@@ -66,6 +67,19 @@ TRANSLITERALS
   last = [IS 7:11]
 
 ----
+=======
+  TRANSLITERALS
+  -------------
+  ???, pneuma -> [trans?]
+
+  ???, angelos -> [trans?]
+
+  ???, charis -> ?charity?
+  
+  ???, diakonos -> deacon, diaconate
+
+
+>>>>>>> 11de06445a0f164a405d6dfa0652a84c5cf4b32d
 DONE
 ----
 H3068 Yahweh -> Yahweh
