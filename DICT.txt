@@ -1,5 +1,10 @@
 TODO
 ----
+Neighbor
+  H7934, shakayn
+  
+
+
 H3518, kabah -> quench, quenched
   https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H3518&t=KJV
 
@@ -14,16 +19,16 @@ G40, hagios -> holy
 
 H2803, chashab -> reckon
   https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H2803&t=KJV
+  
+  
+H3405, yada -> know
+  https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?t=kjv&strongs=h3045
 
 
 H3373, yare' -> fear/afraid
   https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H3373&t=KJV
+  
 
-???, pneuma -> [trans?]
-
-???, angelos -> [trans?]
-
-???, charis -> ?charity?
 
 G1342, dikaios -> righteous?just
 
@@ -46,7 +51,21 @@ Dimensions:
 
 G5281
 
+-------------
+TRANSLITERALS
+-------------
+???, pneuma -> [trans?]
 
+???, angelos -> [trans?]
+
+???, charis -> ?charity?
+
+???, diakonos -> deacon, diaconate
+
+???, Sheol -> sheol
+  last = [IS 7:11]
+
+----
 DONE
 ----
 H3068 Yahweh -> Yahweh
