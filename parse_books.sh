@@ -1,1 +1,1 @@
-awk -F, '{print>$2/$4}' output
+awk -F, '{print >> $1/$3; close($1/$3);}' output
