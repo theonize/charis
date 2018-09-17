@@ -1,8 +1,15 @@
 TODO
 ----
+
+Firstfruit
+  H1060, G536
+
+G5287; hypostasis ~ nature
+
+G5481; character
+
 Neighbor
   H7934, shakayn
-  
 
 
 H3518, kabah -> quench, quenched
