@@ -95,3 +95,4 @@ H3974, ma'owr -> luminary, luminaries, illumined, illumination
 
 H5216, n'r -> lamp
 
+H7225:reyshith ~ firstfruits

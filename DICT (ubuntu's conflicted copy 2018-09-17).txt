@@ -1,0 +1,92 @@
+TODO
+----
+Avon ~ Crooked H????
+
+Neighbor
+  H7934, shakayn
+  
+
+
+H3518, kabah -> quench, quenched
+  https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H3518&t=KJV
+
+H210, Adam -> man
+  https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H120&t=KJV
+
+H6918, qawdesh -> holy
+  http://biblehub.com/hebrew/6918.htm
+G40, hagios -> holy
+  http://biblehub.com/greek/40.htm
+
+
+H2803, chashab -> reckon
+  https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H2803&t=KJV
+  
+  
+H3405, yada -> know
+  https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?t=kjv&strongs=h3045
+
+
+H3373, yare' -> fear/afraid
+  https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H3373&t=KJV
+  
+
+
+G1342, dikaios -> righteous?just
+
+
+Firstfruit:
+  H7225, reyshith
+    http://biblehub.com/hebrew/7225.htm
+    Next JER 26:1
+  G536, aparche
+    https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=G536&t=KJV
+
+???, theos -> God
+
+Dimensions:
+  G4114, platos -> breadth
+  G3372, mekos -> length
+  G899, depth -> bathos
+  G5311, height -> hypsos
+
+
+G5281
+
+-------------
+TRANSLITERALS
+-------------
+???, pneuma -> [trans?]
+
+<<<<<<< HEAD
+???, angelos -> [trans?]
+
+???, charis -> ?charity?
+
+???, diakonos -> deacon, diaconate
+
+???, Sheol -> sheol
+  last = [IS 7:11]
+
+----
+=======
+  TRANSLITERALS
+  -------------
+  ???, pneuma -> [trans?]
+
+  ???, angelos -> [trans?]
+
+  ???, charis -> ?charity?
+  
+  ???, diakonos -> deacon, diaconate
+
+
+>>>>>>> 11de06445a0f164a405d6dfa0652a84c5cf4b32d
+DONE
+----
+H3068 Yahweh -> Yahweh
+  
+H3974, ma'owr -> luminary, luminaries, illumined, illumination
+
+H5216, n'r -> lamp
+
