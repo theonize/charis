@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 
 let data = fs.readFileSync('output')
-let subdirectory = 'testdir'
+let subdirectory = 'graph'
 
 
 if (!fs.existsSync(subdirectory))
@@ -26,7 +26,7 @@ for (let record of data) {
     let chapter = fields[2]
     let prevChapter
     let verseNum = fields[3]
-    let verse = fields[4]
+    let verse = fields.slice(4)
 
     let directory = `./${subdirectory}/${bookNum}`
     let currFile = `${directory}/${chapter}`
@@ -37,7 +37,7 @@ for (let record of data) {
             fs.mkdirSync(directory)
 
 
-   fs.appendFileSync(currFile, verse)
+   fs.appendFileSync(currFile, `${verse}\n`)
 
 
     prevBook = book

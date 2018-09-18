@@ -5,53 +5,52 @@ Avon ~ Crooked H????
 Neighbor
   H7934, shakayn
 
-
-
 Firstfruit
-  H1060, G536
-
-G5287; hypostasis ~ nature
-
-G5481; character
-
-Neighbor
-  H7934, shakayn
-
-
-H3518, kabah -> quench, quenched
-  https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H3518&t=KJV
-
-H210, Adam -> man
-  https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H120&t=KJV
-
-H6918, qawdesh -> holy
-  http://biblehub.com/hebrew/6918.htm
-G40, hagios -> holy
-  http://biblehub.com/greek/40.htm
-
-
-H2803, chashab -> reckon
-  https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H2803&t=KJV
-  
-  
-H3405, yada -> know
-  https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?t=kjv&strongs=h3045
-
-
-H3373, yare' -> fear/afraid
-  https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H3373&t=KJV
-  
-
-
-G1342, dikaios -> righteous?just
-
-
-Firstfruit:
+  ?H1060
   H7225, reyshith
     http://biblehub.com/hebrew/7225.htm
     Next JER 26:1
   G536, aparche
     https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=G536&t=KJV
+
+?Nature
+  G5287; hypostasis ~ nature
+
+Character
+  G5481; character
+
+Neighbor
+  H7934, shakayn
+
+Quench, quenched
+  H3518, kabah -> quench, quenched
+    https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H3518&t=KJV
+
+Adam, man
+  H210, Adam -> man
+    https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H120&t=KJV
+
+Holy
+  H6918, qawdesh -> holy
+    http://biblehub.com/hebrew/6918.htm
+  G40, hagios -> holy
+    http://biblehub.com/greek/40.htm
+
+Reckon
+  H2803, chashab -> reckon
+    https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H2803&t=KJV
+  
+Know  
+  H3405, yada -> know
+    https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?t=kjv&strongs=h3045
+
+Fear, afraid
+  H3373, yare' -> fear/afraid
+    https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H3373&t=KJV
+  
+
+Righteous
+  G1342, dikaios -> righteous?just
 
 ???, theos -> God
 
@@ -64,27 +63,22 @@ Dimensions:
 
 G5281
 
--------------
-TRANSLITERALS
--------------
-???, pneuma -> [trans?]
+pneuma -> [trans?]
 
-???, angelos -> [trans?]
+angelos -> [trans?]
 
-???, charis -> ?charity?
+charis -> ?charity?
 
-???, diakonos -> deacon, diaconate
+diakonos -> deacon, diaconate
 
-???, Sheol -> sheol
+Sheol -> sheol
   last = [IS 7:11]
 
-----
-DONE
-----
-H3068 Yahweh -> Yahweh
-  
-H3974, ma'owr -> luminary, luminaries, illumined, illumination
+Yahweh
+  H3068 Yahweh -> Yahweh
 
-H5216, n'r -> lamp
+Luminary, illumine
+  H3974, ma'owr -> luminary, luminaries, illumined, illumination
 
-H7225:reyshith ~ firstfruits
+Lamp
+  H5216, n'r -> lamp
