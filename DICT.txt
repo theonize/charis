@@ -11,6 +11,9 @@ Upbraid
 Neighbor
   H7934, shakayn
 
+Ponder
+  H6424, palac
+
 Firstfruit
   ?H1060
   H7225, reyshith
