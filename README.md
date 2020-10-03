@@ -1,19 +1,21 @@
-# charis
+# Charis
+### A coder's Bible
 
 Presu:
 * Open-Source Bible Translation
 * Initially based on YLT
 * Citations via "OPEN"
 
-Goals:
-* Simple, easily parsable structure (devoid of tradition baggage)
-* Transliterate words commonly used in Bible-nerd vernacular (e.g. Yahweh, Shalom)
-* Normalize word translations whose meaning is obfuscated by disparate translation (e.g. "Holy Ones" vs. Saints, firstfruits vs. myriad first___)
-* Leverage version control tech to give both dependability and visibility to the process.
-* Simple, easily parsable structure (devoid of tradition baggage)
-* Transliterate words common in Bible-nerd vernacular
-* Unify words whose meaning is obfuscated by disparate translation (i.e. undo the obscurity of certain English words/phrases).
 
+Goals:
+* Augment Bible study through clarity and consistency of meaning
+* Normalize word translations whose meaning is obfuscated by disparate translation (e.g. "Holy Ones" vs. Saints, firstfruits vs. myriad first___)
+* Undo the obscurity of certain English words/phrases
+* Leverage version control tech to give both dependability and visibility to the process
+* Simple, easily parsable structure (devoid of tradition baggage)
+
+
+Examples:
 
 
 
