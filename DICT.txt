@@ -1,3 +1,15 @@
+DONE
+----
+
+Firstfruit
+  H7225, R$'+
+  G536, aparxy
+
+Elhoim
+  H430, ALH'M
+  G2316, theos
+
+
 TODO
 ----
 Avon ~ Crooked H????
@@ -13,14 +25,6 @@ Neighbor
 
 Ponder
   H6424, palac
-
-Firstfruit
-  ?H1060
-  H7225, reyshith
-    http://biblehub.com/hebrew/7225.htm
-    Next JER 26:1
-  G536, aparche
-    https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=G536&t=KJV
 
 ?Nature
   G5287; hypostasis ~ nature
