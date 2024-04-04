@@ -1,3 +1,10 @@
+HEB
+- ELH'M: God
+
+GRK
+- tyrew: kept
+
+
 DONE
 ----
 
@@ -8,6 +15,7 @@ Firstfruit
 Elhoim
   H430, ALH'M
   G2316, theos
+
 
 
 TODO
