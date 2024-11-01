@@ -1,6 +1,6 @@
-export async function loadEnglish() {
+export async function loadEnglish(abortSignal) {
   try {
-    const response = await fetch(`${process.env.PUBLIC_URL}/asset/NET.json`);
+    const response = await fetch(`${process.env.PUBLIC_URL}/asset/NET.json`, {signal: abortSignal})
     
     if (!response.ok) {
       throw new Error(`Failed to load JSON: ${response.statusText}`)
@@ -14,9 +14,9 @@ export async function loadEnglish() {
 }
 
 
-export async function loadOriginal() {
+export async function loadOriginal(abortSignal) {
   try {
-    const response = await fetch(`${process.env.PUBLIC_URL}/asset/OG.json`);
+    const response = await fetch(`${process.env.PUBLIC_URL}/asset/OG.json`, {signal: abortSignal})
     
     if (!response.ok) {
       throw new Error(`Failed to load JSON: ${response.statusText}`)
