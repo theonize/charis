@@ -1,10 +1,13 @@
 import {useEffect, useState} from 'react'
 import {loadEnglish, loadOriginal, saveEnglish} from '../lib/util'
-import Data from './View/Main'
+import ViewBook from './View/Book'
 import Second from './View/Second'
+import {useBible} from '../lib/verseContext'
 
 
 export default function Main() {
+  const {book, setBook} = useBible()
+  
   const [dataEng, setDataEng] = useState()
   const [dataOrig, setDataOrig] = useState()
   const [loading, setLoading] = useState(false)
@@ -60,8 +63,16 @@ export default function Main() {
       
       {error && <p style={{ color: 'red' }}>{error}</p>}
       
-      {dataEng && <div className="columnar">
-        <Data data={dataEng} />
+      {dataEng && <div className='selector container'>
+        <select onChange={E=>setBook(E.target.value)} value={book}>
+          <option>Choose a book</option>
+          
+          {Object.keys(dataEng).map((book,I)=><option key={I}>{book}</option>)}
+        </select>
+      </div>}
+      
+      {book && dataEng && dataOrig && <div className="columnar">
+        <Second data={dataEng} />
         
         <Second data={dataOrig} />
       </div>
