@@ -1,6 +1,6 @@
 export async function loadEnglish() {
   try {
-    const response = await fetch(`${process.env.PUBLIC_URL}/asset/eng.json`);
+    const response = await fetch(`${process.env.PUBLIC_URL}/asset/NET.json`);
     
     if (!response.ok) {
       throw new Error(`Failed to load JSON: ${response.statusText}`)
@@ -16,7 +16,7 @@ export async function loadEnglish() {
 
 export async function loadOriginal() {
   try {
-    const response = await fetch(`${process.env.PUBLIC_URL}/asset/orig.json`);
+    const response = await fetch(`${process.env.PUBLIC_URL}/asset/OG.json`);
     
     if (!response.ok) {
       throw new Error(`Failed to load JSON: ${response.statusText}`)
