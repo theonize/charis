@@ -3,6 +3,7 @@ import Chapter from './Chapter'
 
 
 export default function ViewBook({data, name}) {
+  console.log(data)
   if (data) return <div>
     <h1>{name}</h1>
     

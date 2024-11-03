@@ -30,7 +30,6 @@ export default function Verse({ chapter, index, children }) {
   }, [chapter, index, verse])
   
   
-  
   return (
     <span
       className={classes}
