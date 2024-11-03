@@ -4,13 +4,16 @@ import ViewBook from './View/Book'
 import Second from './View/Second'
 import {useBible} from '../lib/verseContext'
 
+import dataEng from '../ENG.json'
+import dataOrig from '../OG.json'
+
 
 export default function Main() {
   const {book, setBook} = useBible()
   
-  const [dataEng, setDataEng] = useState()
-  const [dataOrig, setDataOrig] = useState()
-  const [loading, setLoading] = useState(false)
+  // const [dataEng, setDataEng] = useState()
+  // const [dataOrig, setDataOrig] = useState()
+  const [loading, setLoading] = useState(true)
   const [error, setError] = useState()
   
   const handleSave = async () => {
@@ -28,28 +31,14 @@ export default function Main() {
   }
   
   
-  const loadData = async (aborter) => {
-    setError(null)
-    setLoading(true)
-    
-    loadEnglish(aborter.signal)
-      .then(setDataEng)
-      .catch(err => setError("Failed to load English data."))
-      .finally(() => setLoading(false))
-    
-    loadOriginal(aborter.signal)
-      .then(setDataOrig)
-      .catch(err => setError("Failed to load Original data."))
-      .finally(() => setLoading(false))
-  }
-  
-  
   useEffect(() => {
-    const aborter = new AbortController()
+    // const aborter = new AbortController()
     
-    loadData(aborter).catch(console.error)
+    // loadData(aborter).catch(console.error)
     
-    return () => aborter.abort()
+    setLoading(false)
+    
+    // return () => aborter.abort()
   }, [])  
   
   

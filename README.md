@@ -1,6 +1,14 @@
 # Charis
 ### A coder's Bible
 
+
+# ! TODO ! #
+
+**Move JSON files to /src so they get packages and downloaded with the PWA.**
+**When you edit it you are going to save locally anyways and use the dev-server.**
+
+
+
 ## Presu
 * Open-Source Bible Translation
 

@@ -3,7 +3,7 @@ import Verse from './Verse'
 
 
 export default function Chapter({chapter, data}) {
-  return <div>
+  if (data?.map) return <div>
     {data.map((item, I)=><Verse
       chapter={chapter}
       index={I+1}
