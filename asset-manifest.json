@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/charis/static/css/main.e84d0a9d.css",
+    "main.js": "/charis/static/js/main.a5a4d604.js",
+    "static/js/453.66df3515.chunk.js": "/charis/static/js/453.66df3515.chunk.js",
+    "index.html": "/charis/index.html",
+    "main.e84d0a9d.css.map": "/charis/static/css/main.e84d0a9d.css.map",
+    "main.a5a4d604.js.map": "/charis/static/js/main.a5a4d604.js.map",
+    "453.66df3515.chunk.js.map": "/charis/static/js/453.66df3515.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e84d0a9d.css",
+    "static/js/main.a5a4d604.js"
+  ]
+}
