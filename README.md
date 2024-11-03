@@ -2,6 +2,12 @@
 ### A coder's Bible
 
 
+# ! TODO ! #
+
+- Add OG search function
+  - shows a list of discovered verses, clicking opens that chapter/verse
+
+
 ## Presu
 * Open-Source Bible Translation
 

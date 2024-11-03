@@ -8,9 +8,5 @@ export default function Header() {
   
   return <>
     <h1>charis</h1>
-    
-    {verse && <div className="tooltip">
-      Chapter: {verse.chapter}, Verse: {verse.verse}
-    </div> }
   </>
 }

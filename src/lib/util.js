@@ -34,7 +34,7 @@ export async function saveEnglish(data) {
   try {
     if ('showSaveFilePicker' in window) {
       const options = {
-        suggestedName: 'eng.json',
+        suggestedName: 'ENG.json',
         types: [
           {
             description: 'JSON Files',
