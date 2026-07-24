@@ -42,6 +42,34 @@
       "decided": "2026-07-24"
     },
     {
+      "id": "el",
+      "rendering": "El",
+      "status": "decided",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H410", "translit": "AL", "lemma": "el" }
+      ],
+      "senses": [],
+      "rationale": "Loan-word per P4, ratified 2026-07-24: El/Eloah/Elohim are one root family — transliteration keeps the derivation visible; 'God' would re-obscure what the elohim pass removed. Already familiar English via Beth-El, Immanu-El, El Shaddai.",
+      "refs": [],
+      "notes": [
+        "I5 caveat: LXX/NT flattens El/Eloah/Elohim to theos — annotate quotation divergence, don't hide it."
+      ],
+      "decided": "2026-07-24"
+    },
+    {
+      "id": "eloah",
+      "rendering": "Eloah",
+      "status": "decided",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H433", "translit": "ALWH", "lemma": "eloah" }
+      ],
+      "senses": [],
+      "rationale": "Loan-word per P4, ratified 2026-07-24 with [[el]]: long singular of the El root family (Job-concentrated, ~57 occurrences); keeps derivation visible alongside El and Elohim.",
+      "refs": [],
+      "notes": [],
+      "decided": "2026-07-24"
+    },
+    {
       "id": "yahweh",
       "rendering": "Yahweh",
       "status": "candidate",
