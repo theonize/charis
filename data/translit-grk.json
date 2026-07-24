@@ -1,0 +1,31 @@
+{
+  "description": "Charis Greek transliteration. Reconstructed 2026-07-24 from committed examples (tyrew = τηρέω, aparxy = ἀπαρχή) plus one-letter-per-letter principle; ratified by user 2026-07-24 (upsilon = 'u', resolving the collision with attested eta = 'y'; DICT hy- spellings like hypsos are conventional lemma names, not Charis transliterals). confidence marks provenance: 'attested' = from committed examples; 'inferred' = chosen at ratification.",
+  "status": "ratified",
+  "note": "Lowercase shown; capitalize per source. Diacritics/breathings dropped except rough breathing → leading 'h' (inferred — hypsos, hypostasis in DICT suggest it). Iota subscript dropped (inferred).",
+  "letters": [
+    { "greek": "α", "name": "alpha", "ascii": "a", "confidence": "attested", "evidence": "aparxy" },
+    { "greek": "β", "name": "beta", "ascii": "b", "confidence": "inferred" },
+    { "greek": "γ", "name": "gamma", "ascii": "g", "confidence": "inferred" },
+    { "greek": "δ", "name": "delta", "ascii": "d", "confidence": "inferred" },
+    { "greek": "ε", "name": "epsilon", "ascii": "e", "confidence": "attested", "evidence": "tyrew" },
+    { "greek": "ζ", "name": "zeta", "ascii": "z", "confidence": "inferred" },
+    { "greek": "η", "name": "eta", "ascii": "y", "confidence": "attested", "evidence": "tyrew (τηρέω), aparxy (ἀπαρχή)" },
+    { "greek": "θ", "name": "theta", "ascii": "th", "confidence": "inferred", "evidence": "one of the '2 english letters' cases; 'theos' in DICT" },
+    { "greek": "ι", "name": "iota", "ascii": "i", "confidence": "inferred" },
+    { "greek": "κ", "name": "kappa", "ascii": "k", "confidence": "inferred" },
+    { "greek": "λ", "name": "lambda", "ascii": "l", "confidence": "inferred" },
+    { "greek": "μ", "name": "mu", "ascii": "m", "confidence": "inferred" },
+    { "greek": "ν", "name": "nu", "ascii": "n", "confidence": "inferred" },
+    { "greek": "ξ", "name": "xi", "ascii": "ks", "confidence": "inferred", "evidence": "the other likely '2 english letters' case; 'x' is taken by chi (aparxy)" },
+    { "greek": "ο", "name": "omicron", "ascii": "o", "confidence": "inferred" },
+    { "greek": "π", "name": "pi", "ascii": "p", "confidence": "attested", "evidence": "aparxy" },
+    { "greek": "ρ", "name": "rho", "ascii": "r", "confidence": "attested", "evidence": "tyrew, aparxy" },
+    { "greek": "σ", "name": "sigma", "ascii": "s", "confidence": "inferred", "finals": ["ς"] },
+    { "greek": "τ", "name": "tau", "ascii": "t", "confidence": "attested", "evidence": "tyrew" },
+    { "greek": "υ", "name": "upsilon", "ascii": "u", "confidence": "inferred", "evidence": "Ratified 2026-07-24 as 'u': eta keeps attested 'y'; DICT hy- spellings (hypsos, hypostasis) are conventional lemma names, not Charis transliterals." },
+    { "greek": "φ", "name": "phi", "ascii": "f", "confidence": "inferred", "evidence": "single-letter principle favors 'f' over 'ph'" },
+    { "greek": "χ", "name": "chi", "ascii": "x", "confidence": "attested", "evidence": "aparxy (ἀπαρχή)" },
+    { "greek": "ψ", "name": "psi", "ascii": "ps", "confidence": "inferred" },
+    { "greek": "ω", "name": "omega", "ascii": "w", "confidence": "attested", "evidence": "tyrew (τηρέω)" }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/theonize/charis/scripts/dict.schema.json",
+  "title": "Charis dictionary",
+  "description": "Structured lemma-rendering dictionary. Authority over DICT.txt. Semantic rules beyond this schema (duplicate Strong's claims, I2 rendering collisions) are enforced by scripts/dict-lint.js.",
+  "type": "object",
+  "required": ["version", "entries"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "integer", "const": 1 },
+    "note": { "type": "string" },
+    "statuses": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "entries": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/entry" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "entry": {
+      "type": "object",
+      "required": ["id", "rendering", "status", "lemmas", "senses", "rationale", "refs", "notes", "decided"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$",
+          "description": "Stable slug; never reused after deletion."
+        },
+        "rendering": {
+          "type": ["string", "null"],
+          "minLength": 1,
+          "description": "Chosen (or provisional) English rendering / transliteral. Null while undecided."
+        },
+        "status": { "enum": ["candidate", "decided", "applied"] },
+        "lemmas": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/lemma" }
+        },
+        "senses": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/sense" }
+        },
+        "rationale": {
+          "type": ["string", "null"],
+          "description": "Required (non-null) when status is decided or applied — I6."
+        },
+        "refs": { "type": "array", "items": { "type": "string", "format": "uri" } },
+        "notes": { "type": "array", "items": { "type": "string" } },
+        "decided": {
+          "type": ["string", "null"],
+          "format": "date",
+          "description": "ISO date the rendering was decided."
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "enum": ["decided", "applied"] } } },
+          "then": {
+            "properties": {
+              "rendering": { "type": "string" },
+              "rationale": { "type": "string" }
+            }
+          }
+        }
+      ]
+    },
+    "lemma": {
+      "type": "object",
+      "required": ["lang", "strongs", "translit", "lemma"],
+      "properties": {
+        "lang": { "enum": ["heb", "grk", "arc"] },
+        "strongs": {
+          "type": ["string", "null"],
+          "pattern": "^[HG][0-9]{1,4}$",
+          "description": "H-prefix for heb/arc, G-prefix for grk (cross-checked by dict-lint)."
+        },
+        "translit": {
+          "type": ["string", "null"],
+          "description": "Project transliteration per the README mapping tables."
+        },
+        "lemma": {
+          "type": ["string", "null"],
+          "description": "Conventional romanized lemma name."
+        }
+      },
+      "additionalProperties": false
+    },
+    "sense": {
+      "type": "object",
+      "required": ["id", "definition", "rendering", "definingRefs"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+        "definition": { "type": "string" },
+        "rendering": { "type": ["string", "null"] },
+        "definingRefs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "description": "Verse coordinate, e.g. GEN 1:1" }
+        },
+        "adjudication": {
+          "type": ["string", "null"],
+          "description": "PR3 collapse-test note: why this split survives."
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

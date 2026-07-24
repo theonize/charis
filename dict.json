@@ -1,0 +1,430 @@
+{
+  "$schema": "./scripts/dict.schema.json",
+  "version": 1,
+  "note": "Structured successor to DICT.txt (migrated 2026-07-24). DICT.txt is retained as historical source; all new decisions go here. Validate with: node scripts/dict-lint.js",
+  "statuses": {
+    "candidate": "queued for the PR1 normalization loop; rendering (if any) is provisional",
+    "decided": "rendering chosen and recorded with rationale; not yet applied corpus-wide",
+    "applied": "rendering imputed across every occurrence; invariant checks green"
+  },
+  "entries": [
+    {
+      "id": "firstfruit",
+      "rendering": "firstfruit",
+      "status": "decided",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H7225", "translit": "R$'+", "lemma": "rashit" },
+        { "lang": "grk", "strongs": "G536", "translit": "aparxy", "lemma": "aparche" }
+      ],
+      "senses": [],
+      "rationale": "Normalize the scattered 'first___' renderings (firstfruits, beginning, chief) where the lemma is R$'+/aparxy. Listed DONE in DICT.txt; README cites RA$'+ ~ rashit ~ firstfruit.",
+      "refs": [],
+      "notes": [],
+      "decided": null
+    },
+    {
+      "id": "elohim",
+      "rendering": "Elohim",
+      "status": "decided",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H430", "translit": "ALH'M", "lemma": "elohim" },
+        { "lang": "grk", "strongs": "G2316", "translit": "theos", "lemma": "θεός" }
+      ],
+      "senses": [],
+      "rationale": "Listed DONE in DICT.txt under 'Elhoim'. Spelling ratified as 'Elohim' (over corpus's one-off 'Elohiym') 2026-07-24; imputed corpus-wide same day (3319 verses: God/gods/Elohiym → Elohim/elohim, verses keyed by H430/θεός).",
+      "refs": [],
+      "notes": [
+        "DICT.txt scratch header also had 'ELH'M: God' (translit variant, rendering 'God') — conflicts with this entry; resolved in favor of the DONE section.",
+        "Standalone TODO line '???, theos -> God' also claimed theos for 'God'; superseded by this entry or needs re-adjudication (PR4 collision process).",
+        "Still 'decided' not 'applied': 55 verses skipped (H410 El / H433 Eloah co-occur — string replace unsafe), 20 residue (H430 present, no God/gods token), ~35 verses lack lemma coverage. Manual/AI pass needed before flipping to applied (check-mapping enforces).",
+        "grk lemma field holds Greek script (θεός) to key against MorphGNT; romanization lives in translit. Convention for all future grk entries."
+      ],
+      "decided": "2026-07-24"
+    },
+    {
+      "id": "yahweh",
+      "rendering": "Yahweh",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H3068", "translit": "YHWH", "lemma": "yahweh" }
+      ],
+      "senses": [],
+      "rationale": "Transliterate per P4; README cites Yahweh as the canonical example.",
+      "refs": [],
+      "notes": [],
+      "decided": null
+    },
+    {
+      "id": "tereo",
+      "rendering": "kept",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "grk", "strongs": null, "translit": "tyrew", "lemma": "tereo" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": ["From DICT.txt scratch header 'tyrew: kept'. Strong's not recorded (likely G5083 — verify before deciding)."],
+      "decided": null
+    },
+    {
+      "id": "avon",
+      "rendering": "crooked",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": null, "translit": null, "lemma": "avon" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": ["DICT.txt: 'Avon ~ Crooked H????' — Strong's unknown in source (likely H5771 — verify)."],
+      "decided": null
+    },
+    {
+      "id": "tapeinos",
+      "rendering": "humility",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "grk", "strongs": "G5011", "translit": null, "lemma": "tapeinos" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": [],
+      "decided": null
+    },
+    {
+      "id": "oneidizo",
+      "rendering": "upbraid",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "grk", "strongs": "G3679", "translit": null, "lemma": "oneidizo" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": [],
+      "decided": null
+    },
+    {
+      "id": "shaken",
+      "rendering": "neighbor",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H7934", "translit": null, "lemma": "shakayn" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": ["Appeared twice in DICT.txt TODO; deduplicated."],
+      "decided": null
+    },
+    {
+      "id": "palas",
+      "rendering": "ponder",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H6424", "translit": null, "lemma": "palac" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": [],
+      "decided": null
+    },
+    {
+      "id": "hypostasis",
+      "rendering": "nature",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "grk", "strongs": "G5287", "translit": null, "lemma": "hypostasis" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": ["Marked '?Nature' in DICT.txt — rendering doubted. 'Hypostasis' itself is a P3 transliteration candidate."],
+      "decided": null
+    },
+    {
+      "id": "character",
+      "rendering": "character",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "grk", "strongs": "G5481", "translit": null, "lemma": "charakter" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": [],
+      "decided": null
+    },
+    {
+      "id": "kabah",
+      "rendering": "quench",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H3518", "translit": null, "lemma": "kabah" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": ["https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H3518&t=KJV"],
+      "notes": [],
+      "decided": null
+    },
+    {
+      "id": "adam",
+      "rendering": "man",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H120", "translit": null, "lemma": "adam" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": ["https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H120&t=KJV"],
+      "notes": ["DICT.txt said H210 but its own URL cites H120 (adam). H210 is Uphaz — took H120 as intended; flag if wrong."],
+      "decided": null
+    },
+    {
+      "id": "holy",
+      "rendering": "holy",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H6918", "translit": null, "lemma": "qadosh" },
+        { "lang": "grk", "strongs": "G40", "translit": null, "lemma": "hagios" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [
+        "http://biblehub.com/hebrew/6918.htm",
+        "http://biblehub.com/greek/40.htm"
+      ],
+      "notes": ["Bears on the 'Holy Ones vs. Saints' normalization goal in README."],
+      "decided": null
+    },
+    {
+      "id": "chasid",
+      "rendering": "devoted one",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H2623", "translit": null, "lemma": "chasid" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": [
+        "KJV renders 'saints' throughout Psalms (30:4, 116:15), colliding with qedoshim (entry `holy`, H6918/G40) — flagship I2 case from README ('Holy Ones vs. Saints').",
+        "Derived from chesed (covenant-loyalty); decide rendering together with chesed's PR1 pass so the derivation stays visible ('devoted ones'/'loyal ones' provisional).",
+        "hagios/qadosh take 'holy' / substantive 'holy ones'; chasid must not share an English word with them."
+      ],
+      "decided": null
+    },
+    {
+      "id": "chashab",
+      "rendering": "reckon",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H2803", "translit": null, "lemma": "chashab" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": ["https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H2803&t=KJV"],
+      "notes": [],
+      "decided": null
+    },
+    {
+      "id": "yada",
+      "rendering": "know",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H3045", "translit": null, "lemma": "yada" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": ["https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?t=kjv&strongs=h3045"],
+      "notes": ["DICT.txt said H3405 but its own URL cites H3045 (yada). H3405 is Jericho — took H3045 as intended; flag if wrong."],
+      "decided": null
+    },
+    {
+      "id": "yare",
+      "rendering": "fear",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H3373", "translit": null, "lemma": "yare'" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": ["https://www.blueletterbible.org/lang/lexicon/lexicon.cfm?Strongs=H3373&t=KJV"],
+      "notes": ["DICT.txt gave 'fear/afraid' — conjugation range, single sense assumed."],
+      "decided": null
+    },
+    {
+      "id": "dikaios",
+      "rendering": null,
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "grk", "strongs": "G1342", "translit": null, "lemma": "dikaios" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": ["DICT.txt: 'righteous?just' — rendering unresolved between righteous and just."],
+      "decided": null
+    },
+    {
+      "id": "platos",
+      "rendering": "breadth",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "grk", "strongs": "G4114", "translit": null, "lemma": "platos" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": ["Dimensions group with mekos, bathos, hypsos."],
+      "decided": null
+    },
+    {
+      "id": "mekos",
+      "rendering": "length",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "grk", "strongs": "G3372", "translit": null, "lemma": "mekos" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": ["Dimensions group."],
+      "decided": null
+    },
+    {
+      "id": "bathos",
+      "rendering": "depth",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "grk", "strongs": "G899", "translit": null, "lemma": "bathos" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": ["DICT.txt wrote 'depth -> bathos' (reversed vs. siblings); normalized to lemma -> rendering. Dimensions group."],
+      "decided": null
+    },
+    {
+      "id": "hypsos",
+      "rendering": "height",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "grk", "strongs": "G5311", "translit": null, "lemma": "hypsos" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": ["Dimensions group."],
+      "decided": null
+    },
+    {
+      "id": "g5281",
+      "rendering": null,
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "grk", "strongs": "G5281", "translit": null, "lemma": null }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": ["Bare 'G5281' line in DICT.txt — no lemma or rendering recorded (G5281 is hypomone; verify intent)."],
+      "decided": null
+    },
+    {
+      "id": "pneuma",
+      "rendering": null,
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "grk", "strongs": null, "translit": null, "lemma": "pneuma" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": ["DICT.txt: 'pneuma -> [trans?]' — transliteration candidacy undecided."],
+      "decided": null
+    },
+    {
+      "id": "angelos",
+      "rendering": null,
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "grk", "strongs": null, "translit": null, "lemma": "angelos" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": ["DICT.txt: 'angelos -> [trans?]' — transliteration candidacy undecided."],
+      "decided": null
+    },
+    {
+      "id": "charis",
+      "rendering": null,
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "grk", "strongs": null, "translit": null, "lemma": "charis" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": ["DICT.txt: 'charis -> ?charity?' — undecided. The project's namesake lemma."],
+      "decided": null
+    },
+    {
+      "id": "diakonos",
+      "rendering": "deacon",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "grk", "strongs": null, "translit": null, "lemma": "diakonos" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": ["DICT.txt: 'diakonos -> deacon, diaconate'."],
+      "decided": null
+    },
+    {
+      "id": "sheol",
+      "rendering": "sheol",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": null, "translit": null, "lemma": "sheol" }
+      ],
+      "senses": [],
+      "rationale": "Transliterate per P4.",
+      "refs": [],
+      "notes": ["DICT.txt progress note: 'last = [IS 7:11]' — imputation had reached Isaiah 7:11."],
+      "decided": null
+    },
+    {
+      "id": "maor",
+      "rendering": "luminary",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H3974", "translit": null, "lemma": "ma'owr" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": ["DICT.txt forms: luminary, luminaries, illumined, illumination."],
+      "decided": null
+    },
+    {
+      "id": "ner",
+      "rendering": "lamp",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H5216", "translit": null, "lemma": "n'r" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": [],
+      "decided": null
+    }
+  ]
+}

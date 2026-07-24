@@ -1,0 +1,30 @@
+{
+  "description": "Charis Hebrew transliteration — revised Michigan/Claremont, ASCII-friendly. Maps Hebrew consonants to ASCII. Reconstructed 2026-07-24 from committed examples (RA$'+ = rashit/ראשית, ALH'M = elohim/אלהים, YHWH) plus standard Michigan/Claremont; ratified by user 2026-07-24 (tet/taw collision resolved: taw keeps attested '+', tet takes '9'). confidence marks provenance: 'attested' = from committed examples; 'standard' = unrevised M/C; 'inferred' = revision chosen at ratification.",
+  "status": "ratified",
+  "note": "Vowel points and cantillation are dropped; consonantal skeleton only. Final forms map to the same letter as medial.",
+  "letters": [
+    { "hebrew": "א", "name": "alef", "ascii": "A", "confidence": "attested", "evidence": "RA$'+ (ראשית), ALH'M (אלהים); standard M/C uses ')' — this is the revision" },
+    { "hebrew": "ב", "name": "bet", "ascii": "B", "confidence": "standard" },
+    { "hebrew": "ג", "name": "gimel", "ascii": "G", "confidence": "standard" },
+    { "hebrew": "ד", "name": "dalet", "ascii": "D", "confidence": "standard" },
+    { "hebrew": "ה", "name": "he", "ascii": "H", "confidence": "attested", "evidence": "ALH'M" },
+    { "hebrew": "ו", "name": "waw", "ascii": "W", "confidence": "attested", "evidence": "YHWH" },
+    { "hebrew": "ז", "name": "zayin", "ascii": "Z", "confidence": "standard" },
+    { "hebrew": "ח", "name": "het", "ascii": "X", "confidence": "standard", "evidence": "M/C uses X; README notes multiple 'H'-ish letters need distinct ASCII" },
+    { "hebrew": "ט", "name": "tet", "ascii": "9", "confidence": "inferred", "evidence": "Ratified 2026-07-24: standard M/C '+' was reassigned to taw by the Charis revision (attested RA$'+); tet takes '9' (glyph resembles ט)." },
+    { "hebrew": "י", "name": "yod", "ascii": "'", "confidence": "attested", "evidence": "ALH'M (אלהים), RA$'+ (ראשית); standard M/C uses 'Y' — this is the revision" },
+    { "hebrew": "כ", "name": "kaf", "ascii": "K", "confidence": "standard", "finals": ["ך"] },
+    { "hebrew": "ל", "name": "lamed", "ascii": "L", "confidence": "attested", "evidence": "ALH'M" },
+    { "hebrew": "מ", "name": "mem", "ascii": "M", "confidence": "attested", "evidence": "ALH'M", "finals": ["ם"] },
+    { "hebrew": "נ", "name": "nun", "ascii": "N", "confidence": "standard", "finals": ["ן"] },
+    { "hebrew": "ס", "name": "samekh", "ascii": "S", "confidence": "standard" },
+    { "hebrew": "ע", "name": "ayin", "ascii": "(", "confidence": "inferred", "evidence": "M/C value '('; no committed Charis example. May want an ASCII-friendlier revision (e.g. 'O' or '`')." },
+    { "hebrew": "פ", "name": "pe", "ascii": "P", "confidence": "standard", "finals": ["ף"] },
+    { "hebrew": "צ", "name": "tsade", "ascii": "C", "confidence": "standard", "finals": ["ץ"] },
+    { "hebrew": "ק", "name": "qof", "ascii": "Q", "confidence": "standard" },
+    { "hebrew": "ר", "name": "resh", "ascii": "R", "confidence": "attested", "evidence": "RA$'+" },
+    { "hebrew": "שׂ", "name": "sin", "ascii": "&", "confidence": "standard" },
+    { "hebrew": "שׁ", "name": "shin", "ascii": "$", "confidence": "attested", "evidence": "RA$'+ (ראשית)" },
+    { "hebrew": "ת", "name": "taw", "ascii": "+", "confidence": "attested", "evidence": "RA$'+ (ראשית ends in ת); collision with standard-M/C tet resolved at ratification — tet moved to '9'" }
+  ]
+}
