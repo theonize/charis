@@ -1,5 +1,24 @@
 # Charis
-### A coder's Bible
+### A coder's Bible — one word, one meaning, everywhere.
+
+**📖 Read it now: [theonize.github.io/charis](https://theonize.github.io/charis)**
+
+Charis is an open-source Bible translation built the way engineers build systems:
+every original-language word maps to exactly one English word, everywhere it
+occurs — no more *saints* here and *holy ones* there for the same Hebrew word.
+Where English blurs, we transliterate: **Yahweh**, **Elohim**, **El**, **shalom** —
+words the church already speaks. Every rendering decision is recorded with its
+rationale, applied by deterministic tooling, checked by machine-verified
+invariants, and published in version control. The diff history *is* the
+translation's apparatus.
+
+- **Lexically equivalent** — one lemma, one rendering, canon-wide
+- **Canonically consistent** — echoes and quotations survive translation
+- **Precise over familiar** — the exact word, even when it costs fifty cents
+- **Radically transparent** — every choice is a commit you can read, question, and fork
+
+Side-by-side English and original-language reading in the [web app](https://theonize.github.io/charis).
+How it's governed: [docs/](docs/README.md). How it's built: [docs/TOOLING.md](docs/TOOLING.md).
 
 
 # ! TODO ! #
