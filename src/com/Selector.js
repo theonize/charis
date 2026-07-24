@@ -1,6 +1,5 @@
 import React from 'react'
 import {useBible} from '../lib/verseContext'
-import {saveEnglish} from '../lib/util'
 
 
 export default function Selector({data}) {
@@ -9,12 +8,7 @@ export default function Selector({data}) {
     chapter, setChapter,
     verse,
   } = useBible()
-  
-  
-  const handleSave = () => {
-    saveEnglish(data)
-  }
-  
+
   if (data) return <div className='selector container'>
     <select onChange={E=>setBook(E.target.value)} value={book}>
       <option>Choose a book</option>
@@ -31,8 +25,6 @@ export default function Selector({data}) {
           value={I}
           >{I+1}</option>)}
       </select>
-      
-      <button onClick={handleSave}>Save Changes</button>
     </> }
     
     {verse && <span className="tooltip">

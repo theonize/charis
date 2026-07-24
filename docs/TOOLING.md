@@ -31,10 +31,13 @@ Prerequisite data work: **done** — DICT.txt migrated by hand to `dict.json` (2
 |---|---|---|---|
 | `data/sources/**` | Vendored (committed) | `npm run fetch-sources` | Re-clones pinned SHAs from SOURCES.md; network only here |
 | `data/lemmas.json` | Derived (gitignored) | `npm run build-lemmas` | coord → [H-strongs] (OT) / [greek lemma] (NT); deterministic from data/sources |
+| `src/CHARIS.json` | Derived (gitignored) | `npm run build-app-data` | Viewer app's text; built from asset/bible.csv; CI rebuilds on every deploy |
 | `embeddings.db` | Derived (gitignored) | `npm run embed-db` (future) | See Verse-embedding DB below |
 | `npm run rebuild` | — | rebuilds all derived data | Extend as derived datasets are added |
 
 Rules: derived files are never hand-edited and never source of truth (P9/I8); every derived dataset added later MUST come with its rebuild script and a row here. Known gap: 166 bible.csv verses lack lemma entries — KJV-vs-Hebrew versification offsets (e.g. GEN/31:55 = Heb 32:1); OSHB `VerseMap.xml` is vendored and awaits an ingestion mapping (TODO).
+
+Viewer app (`src/`, React): **read-only by policy** — the in-app verse editor and save-to-JSON flow were removed (I8/P7: text edits go through dict.json + impute only). Deployed to GitHub Pages by `.github/workflows/deploy.yml` on every master push (verify → build-app-data → app:build → Pages).
 
 Transliteration tables `data/translit-heb.json` / `translit-grk.json`: **ratified 2026-07-24** (tet=`9`, upsilon=`u`); these are canonical data (hand-maintained, committed), not derived.
 

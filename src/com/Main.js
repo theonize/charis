@@ -3,7 +3,7 @@ import Chapter from './Chapter'
 import Selector from './Selector'
 import {useBible} from '../lib/verseContext'
 
-import dataEng from '../ENG.json'
+import dataEng from '../CHARIS.json'
 import dataOrig from '../OG.json'
 
 

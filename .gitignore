@@ -43,4 +43,5 @@ pids
 
 # derived datasets — rebuild via npm run rebuild (see docs/TOOLING.md)
 data/lemmas.json
+src/CHARIS.json
 embeddings.db

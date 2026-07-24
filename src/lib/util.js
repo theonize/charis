@@ -1,11 +1,14 @@
+// Viewer-only: text edits go through the translation tooling (dict.json +
+// npm run impute), never through the app. See CLAUDE.md / docs/PROCESSES.md.
+
 export async function loadEnglish(abortSignal) {
   try {
     const response = await fetch(`${process.env.PUBLIC_URL}/asset/NET.json`, {signal: abortSignal})
-    
+
     if (!response.ok) {
       throw new Error(`Failed to load JSON: ${response.statusText}`)
     }
-    
+
     return await response.json()
   } catch (error) {
     console.error("Error loading JSON:", error)
@@ -17,44 +20,14 @@ export async function loadEnglish(abortSignal) {
 export async function loadOriginal(abortSignal) {
   try {
     const response = await fetch(`${process.env.PUBLIC_URL}/asset/OG.json`, {signal: abortSignal})
-    
+
     if (!response.ok) {
       throw new Error(`Failed to load JSON: ${response.statusText}`)
     }
-    
+
     return await response.json()
   } catch (error) {
     console.error("Error loading JSON:", error)
-    throw error
-  }
-}
-
-
-export async function saveEnglish(data) {
-  try {
-    if ('showSaveFilePicker' in window) {
-      const options = {
-        suggestedName: 'ENG.json',
-        types: [
-          {
-            description: 'JSON Files',
-            accept: { 'application/json': ['.json'] },
-          },
-        ],
-      }
-      
-      const handle = await window.showSaveFilePicker(options)
-      const writable = await handle.createWritable()
-      
-      await writable.write(JSON.stringify(data, null, 2))
-      await writable.close()
-      
-      alert("Data saved successfully!")
-    } else {
-      alert("File System Access API is not supported in this browser.")
-    }
-  } catch (error) {
-    console.error("Error saving JSON:", error)
     throw error
   }
 }
