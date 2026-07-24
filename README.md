@@ -21,12 +21,6 @@ Side-by-side English and original-language reading in the [web app](https://theo
 How it's governed: [docs/](docs/README.md). How it's built: [docs/TOOLING.md](docs/TOOLING.md).
 
 
-# ! TODO ! #
-
-- Add OG search function
-  - shows a list of discovered verses, clicking opens that chapter/verse
-
-
 ## Presu
 * Open-Source Bible Translation
 
