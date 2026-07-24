@@ -20,7 +20,7 @@ inline (I1 forbids hand-fixes outside the dict loop) — you report.
    - **Conjugation:** rendering form fits the grammar of the sentence; if the
      needed form is missing from the entry's `forms` list, flag it (dict work,
      not text work).
-   - **Meaning drift:** compare against the YLT base (`json/ylt.json`, same
+   - **Meaning drift:** compare against the YLT base (`asset/json/ylt.json`, same
      coord) — the imputation must not have changed anything except the decided
      tokens.
    - **Collateral damage:** replaced token inside a name or compound

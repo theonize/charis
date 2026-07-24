@@ -2,9 +2,9 @@
 // Run `npm run build-lemmas` first if data/lemmas.json is missing.
 import fs from 'node:fs'
 import path from 'node:path'
-import { loadDict } from '../src/dict.js'
-import { loadBibleCsv } from '../src/corpus.js'
-import { checkMapping } from '../src/checkMapping.js'
+import { loadDict } from '../tool/dict.js'
+import { loadBibleCsv } from '../tool/corpus.js'
+import { checkMapping } from '../tool/checkMapping.js'
 import { BIBLE_CSV, DICT_PATH, ROOT, report } from './lib.js'
 
 const LEMMAS = path.join(ROOT, 'data', 'lemmas.json')

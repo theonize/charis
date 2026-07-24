@@ -1,5 +1,5 @@
 // translit <heb|grk> <word> — one-off transliteration via the ratified tables (PR2).
-import { translitHebrew, translitGreek } from '../src/translit.js'
+import { translitHebrew, translitGreek } from '../tool/translit.js'
 
 const [lang, word] = process.argv.slice(2)
 if (!word || (lang !== 'heb' && lang !== 'grk')) {

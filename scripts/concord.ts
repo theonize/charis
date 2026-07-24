@@ -1,6 +1,6 @@
 // concord <english-word> — reverse concordance summary: where it appears, per book (PR4).
-import { loadBibleCsv } from '../src/corpus.js'
-import { glean } from '../src/glean.js'
+import { loadBibleCsv } from '../tool/corpus.js'
+import { glean } from '../tool/glean.js'
 import { BIBLE_CSV } from './lib.js'
 
 const term = process.argv[2]

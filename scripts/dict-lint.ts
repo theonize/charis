@@ -1,4 +1,4 @@
-import { loadDict, lintDict } from '../src/dict.js'
+import { loadDict, lintDict } from '../tool/dict.js'
 import { DICT_PATH, report } from './lib.js'
 
 const { errors, warnings } = lintDict(loadDict(process.argv[2] ?? DICT_PATH))

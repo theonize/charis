@@ -1,6 +1,6 @@
-import { loadDict } from '../src/dict.js'
-import { dictStats } from '../src/stats.js'
-import { loadBibleCsv } from '../src/corpus.js'
+import { loadDict } from '../tool/dict.js'
+import { dictStats } from '../tool/stats.js'
+import { loadBibleCsv } from '../tool/corpus.js'
 import { BIBLE_CSV, DICT_PATH } from './lib.js'
 
 const s = dictStats(loadDict(DICT_PATH))

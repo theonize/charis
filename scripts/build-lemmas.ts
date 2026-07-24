@@ -3,8 +3,8 @@
 // Output: { "<coord>": [ "H7225", ... heb strongs ] | [ "βίβλος", ... grk lemmas ] }
 import fs from 'node:fs'
 import path from 'node:path'
-import { formatCoord } from '../src/coords.js'
-import { parseOshbXml, parseMorphGnt, parseVerseMap, oshbBookToCharis, morphGntFileToCharis } from '../src/sources.js'
+import { formatCoord } from '../tool/coords.js'
+import { parseOshbXml, parseMorphGnt, parseVerseMap, oshbBookToCharis, morphGntFileToCharis } from '../tool/sources.js'
 import { ROOT } from './lib.js'
 
 const OSHB_DIR = path.join(ROOT, 'data', 'sources', 'oshb', 'wlc')

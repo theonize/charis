@@ -1,7 +1,7 @@
 // glean <term> [--prefix] — every occurrence in bible.csv with coordinates (PR1.2).
-import { loadBibleCsv } from '../src/corpus.js'
-import { formatCoord } from '../src/coords.js'
-import { glean } from '../src/glean.js'
+import { loadBibleCsv } from '../tool/corpus.js'
+import { formatCoord } from '../tool/coords.js'
+import { glean } from '../tool/glean.js'
 import { BIBLE_CSV } from './lib.js'
 
 const args = process.argv.slice(2)

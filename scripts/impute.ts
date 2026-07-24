@@ -4,10 +4,10 @@
 // legacy unquoted-text row style preserved). Never commits — review the git diff.
 import fs from 'node:fs'
 import path from 'node:path'
-import { loadDict } from '../src/dict.js'
-import { loadBibleCsv } from '../src/corpus.js'
-import { imputeRendering } from '../src/impute.js'
-import { formatCoord } from '../src/coords.js'
+import { loadDict } from '../tool/dict.js'
+import { loadBibleCsv } from '../tool/corpus.js'
+import { imputeRendering } from '../tool/impute.js'
+import { formatCoord } from '../tool/coords.js'
 import { BIBLE_CSV, DICT_PATH, ROOT } from './lib.js'
 
 const args = process.argv.slice(2)

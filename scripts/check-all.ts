@@ -2,11 +2,11 @@
 // Not yet covered: check-translit corpus sweep (I3 — needs per-token source alignment), check-xref rendering compare (I5).
 import fs from 'node:fs'
 import path from 'node:path'
-import { loadDict, lintDict } from '../src/dict.js'
-import { loadBibleCsv } from '../src/corpus.js'
-import { checkStructure } from '../src/checkStructure.js'
-import { checkMapping } from '../src/checkMapping.js'
-import { loadXrefCsv } from '../src/xref.js'
+import { loadDict, lintDict } from '../tool/dict.js'
+import { loadBibleCsv } from '../tool/corpus.js'
+import { checkStructure } from '../tool/checkStructure.js'
+import { checkMapping } from '../tool/checkMapping.js'
+import { loadXrefCsv } from '../tool/xref.js'
 import { BIBLE_CSV, DICT_PATH, ROOT, XREF_CSV, report } from './lib.js'
 
 let ok = true

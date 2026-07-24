@@ -3,10 +3,10 @@
 // family lemmas are judged (single-lemma verses are check-mapping's job).
 import fs from 'node:fs'
 import path from 'node:path'
-import { loadDict } from '../src/dict.js'
-import { loadBibleCsv } from '../src/corpus.js'
-import { formatCoord } from '../src/coords.js'
-import { checkAlignment } from '../src/checkAlignment.js'
+import { loadDict } from '../tool/dict.js'
+import { loadBibleCsv } from '../tool/corpus.js'
+import { formatCoord } from '../tool/coords.js'
+import { checkAlignment } from '../tool/checkAlignment.js'
 import { BIBLE_CSV, DICT_PATH, ROOT, report } from './lib.js'
 
 const ids = process.argv.slice(2).filter(a => !a.startsWith('--'))
