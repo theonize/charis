@@ -31,6 +31,8 @@ export interface Entry {
   lemmas: Lemma[]
   senses: Sense[]
   rationale: string | null
+  /** Explicit conjugation forms; when present, matching is exact-form, not prefix-stem. */
+  forms?: string[]
   refs: string[]
   notes: string[]
   decided: string | null

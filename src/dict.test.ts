@@ -39,6 +39,18 @@ describe('lintDict schema errors', () => {
   })
 })
 
+describe('forms field', () => {
+  test('entry may carry explicit conjugation forms', () => {
+    const r = lintDict(dict(entry({ forms: ['quench', 'quenched', 'quenching'] })))
+    expect(r.errors).toEqual([])
+  })
+
+  test('non-array forms is a schema error', () => {
+    const r = lintDict(dict(entry({ forms: 'quenched' })))
+    expect(r.errors.length).toBeGreaterThan(0)
+  })
+})
+
 describe('lintDict cross-field rules', () => {
   test('duplicate ids are an error', () => {
     const r = lintDict(dict(entry({}), entry({ rendering: 'other' })))

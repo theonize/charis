@@ -31,7 +31,9 @@ export function checkMapping(
 
   for (const e of dict.entries) {
     if (e.status === 'candidate' || !e.rendering) continue
-    const stemRe = new RegExp(`\\b${escapeRe(e.rendering.split(/\s+/)[0]!)}\\w*`, 'i')
+    const stemRe = e.forms?.length
+      ? new RegExp(`\\b(${e.forms.map(escapeRe).join('|')})\\b`, 'i')
+      : new RegExp(`\\b${escapeRe(e.rendering.split(/\s+/)[0]!)}\\w*`, 'i')
     const keys = new Set(
       e.lemmas.map(l => (l.lang === 'grk' ? l.lemma : l.strongs)).filter((k): k is string => !!k),
     )

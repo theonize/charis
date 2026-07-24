@@ -1,0 +1,8 @@
+#!/bin/sh
+# Charis pre-commit gate — I-invariants must hold before any commit.
+# Installed via: git config core.hooksPath .githooks
+echo "pre-commit: npm run verify"
+npm run verify || {
+  echo "pre-commit: verify FAILED — commit blocked (fix or use --no-verify only with explicit approval)"
+  exit 1
+}

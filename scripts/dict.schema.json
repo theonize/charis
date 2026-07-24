@@ -48,6 +48,11 @@
           "type": ["string", "null"],
           "description": "Required (non-null) when status is decided or applied — I6."
         },
+        "forms": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Explicit English conjugation forms of the rendering (e.g. quench, quenched, quenching). When present, impute/check-mapping match these exactly instead of prefix-stemming — this is what makes the writing pass deterministic."
+        },
         "refs": { "type": "array", "items": { "type": "string", "format": "uri" } },
         "notes": { "type": "array", "items": { "type": "string" } },
         "decided": {

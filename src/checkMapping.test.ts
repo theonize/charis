@@ -54,6 +54,20 @@ describe('checkMapping (I1)', () => {
     expect(checkMapping(d, corpus, lemmas).errors).toEqual([])
   })
 
+  test('explicit forms match exactly — stem-mismatch form still counts as present', () => {
+    const corpus2 = [v('JOB', 1, 1, 'the fire shall be quenched tonight')]
+    const lem = { 'JOB/1:1': ['H3518'] }
+    const d = dict(entry({ id: 'kabah', rendering: 'quench', forms: ['quench', 'quenched', 'quenching'], lemmas: [{ lang: 'heb', strongs: 'H3518', translit: null, lemma: null }] }))
+    expect(checkMapping(d, corpus2, lem).errors).toEqual([])
+  })
+
+  test('with forms declared, a non-listed conjugation is a miss', () => {
+    const corpus2 = [v('JOB', 1, 1, 'the fire is quenchable')]
+    const lem = { 'JOB/1:1': ['H3518'] }
+    const d = dict(entry({ id: 'kabah', rendering: 'quench', forms: ['quench', 'quenched'], lemmas: [{ lang: 'heb', strongs: 'H3518', translit: null, lemma: null }] }))
+    expect(checkMapping(d, corpus2, lem).errors.some(e => /JOB\/1:1/.test(e))).toBe(true)
+  })
+
   test('candidate entries are skipped entirely', () => {
     const d = dict(entry({ id: 'chasid', rendering: 'devoted', status: 'candidate', lemmas: [{ lang: 'heb', strongs: 'H2623', translit: null, lemma: null }] }))
     const r = checkMapping(d, corpus, lemmas)
