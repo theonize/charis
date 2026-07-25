@@ -4,7 +4,13 @@ import type { Verse } from './corpus.js'
 export interface ImputeOptions {
   /** Source-lemma keys selecting target verses (Strong's for heb, lemma string for grk). */
   keys: string[]
-  /** English terms currently in the text to replace (whole-word, case-insensitive). */
+  /**
+   * English terms currently in the text to replace (whole-word, case-insensitive).
+   * A term may name its own target form as `old=new` (e.g. `prepared=created`);
+   * a bare term falls back to `rendering`. Per-form targets are what let a verb
+   * entry stay one English word while inflecting — the mapping is judgment and
+   * therefore lives in dict.json, not in inference here.
+   */
   replace: string[]
   rendering: string
   /** Sibling lemmas whose presence makes string replacement unsafe (same English word from another lemma) — verse is skipped and reported. */
@@ -39,7 +45,19 @@ export function imputeRendering(
 ): ImputeResult {
   const keys = new Set(opts.keys)
   const ambiguous = new Set(opts.ambiguousWith ?? [])
-  const re = new RegExp(`\\b(${opts.replace.map(escapeRe).join('|')})\\b`, 'gi')
+
+  // `old=new` pairs a source token with its own target form; a bare term takes
+  // the entry rendering. Longest source token first so `prepared` wins over
+  // `prepare` — otherwise the shorter alternative matches its own prefix.
+  const targets = new Map<string, string>()
+  for (const term of opts.replace) {
+    const eq = term.indexOf('=')
+    const source = (eq === -1 ? term : term.slice(0, eq)).trim()
+    const target = eq === -1 ? opts.rendering : term.slice(eq + 1).trim()
+    if (source) targets.set(source.toLowerCase(), target)
+  }
+  const sources = [...targets.keys()].sort((a, b) => b.length - a.length)
+  const re = new RegExp(`\\b(${sources.map(escapeRe).join('|')})\\b`, 'gi')
 
   const result: ImputeResult = { changed: [], ambiguous: [], residue: [] }
 
@@ -53,10 +71,9 @@ export function imputeRendering(
     let touched = false
     const after = v.text.replace(re, m => {
       touched = true
+      const target = targets.get(m.toLowerCase()) ?? opts.rendering
       const upper = m[0]! === m[0]!.toUpperCase()
-      return upper
-        ? opts.rendering[0]!.toUpperCase() + opts.rendering.slice(1)
-        : opts.rendering.toLowerCase()
+      return upper ? target[0]!.toUpperCase() + target.slice(1) : target.toLowerCase()
     })
     if (!touched) result.residue.push(v)
     else if (after !== v.text) result.changed.push({ coord: v.coord, before: v.text, after })

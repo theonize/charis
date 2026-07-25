@@ -1,4 +1,4 @@
-// impute <entry-id> --replace <t1,t2> [--ambiguous H410,H433] [--write]
+// impute <entry-id> --replace <t1,t2|old=new> [--ambiguous H410,H433] [--write]
 // PR1.6 — apply a decided rendering across all lemma-matched verses in bible.csv.
 // Dry-run by default: prints the diff. --write rewrites bible.csv (changed rows only,
 // legacy unquoted-text row style preserved). Never commits — review the git diff.
@@ -21,6 +21,7 @@ const replace = flag('--replace')?.split(',')
 
 if (!entryId || !replace?.length) {
   console.error('usage: npm run impute -- <entry-id> --replace God,gods [--ambiguous H410,H433] [--write]')
+  console.error('       a replace term may target its own form: --replace prepared=created,preparing=creating')
   process.exit(2)
 }
 
@@ -33,6 +34,22 @@ if (!entry) {
 if (entry.status === 'candidate' || !entry.rendering) {
   console.error(`entry "${entryId}" is not decided — decide the rendering first (PR1.5)`)
   process.exit(2)
+}
+
+// An explicit `old=new` target that is not a declared form would be invisible to
+// check-mapping (it matches entry.forms exactly), so the entry must declare it first.
+if (entry.forms?.length) {
+  const declared = new Set(entry.forms.map(f => f.toLowerCase()))
+  const undeclared = replace
+    .filter(t => t.includes('='))
+    .map(t => t.slice(t.indexOf('=') + 1).trim())
+    .filter(f => f && !declared.has(f.toLowerCase()))
+  if (undeclared.length) {
+    console.error(`entry "${entryId}" does not declare form(s): ${[...new Set(undeclared)].join(', ')}`)
+    console.error(`declared forms: ${entry.forms.join(', ')}`)
+    console.error('add them to the entry\'s forms array first (PR1.5) — check-mapping matches forms exactly')
+    process.exit(2)
+  }
 }
 
 const lemmas = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'lemmas.json'), 'utf8'))

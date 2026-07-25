@@ -67,3 +67,72 @@ describe('imputeRendering', () => {
     expect(r.residue.map(x => x.coord.book)).toContain('JOB')
   })
 })
+
+// Verbs: one lemma is one English word, but that word inflects. A single
+// rendering string cannot serve "prepared"→created and "preparing"→creating,
+// so replace terms may name their target form explicitly as `old=new`.
+describe('imputeRendering — per-form targets (verbs)', () => {
+  const verbCorpus: Verse[] = [
+    v('GEN', 1, 1, 'In beginning prepared Elohim the heavens.'),
+    v('GEN', 1, 21, 'And Elohim prepareth the great monsters.'),
+    v('ISAH', 45, 7, 'Forming light, and preparing darkness.'),
+    v('ISAH', 40, 28, 'Yahweh, Preparer of the ends of the earth.'),
+    v('PSLM', 89, 47, 'Wherefore in vain hast Thou created all the sons of men?'),
+  ]
+  const verbLemmas: Record<string, string[]> = {
+    'GEN/1:1': ['H1254'],
+    'GEN/1:21': ['H1254'],
+    'ISAH/45:7': ['H1254'],
+    'ISAH/40:28': ['H1254'],
+    'PSLM/89:47': ['H1254'],
+  }
+  const verbOpts = {
+    keys: ['H1254'],
+    replace: [
+      'prepared=created',
+      'prepareth=createth',
+      'preparing=creating',
+      'preparer=Creator',
+    ],
+    rendering: 'create',
+  }
+
+  test('maps each source token to its own target form', () => {
+    const r = imputeRendering(verbCorpus, verbLemmas, verbOpts)
+    const by = (book: string, verse: number) =>
+      r.changed.find(c => c.coord.book === book && c.coord.verse === verse)!.after
+    expect(by('GEN', 1)).toBe('In beginning created Elohim the heavens.')
+    expect(by('GEN', 21)).toBe('And Elohim createth the great monsters.')
+    expect(by('ISAH', 7)).toBe('Forming light, and creating darkness.')
+  })
+
+  test('preserves leading case per token, including capitalized participles', () => {
+    const r = imputeRendering(verbCorpus, verbLemmas, verbOpts)
+    const isah4028 = r.changed.find(c => c.coord.book === 'ISAH' && c.coord.verse === 28)!
+    expect(isah4028.after).toBe('Yahweh, Creator of the ends of the earth.')
+  })
+
+  test('a bare replace term still falls back to the entry rendering', () => {
+    const r = imputeRendering(
+      [v('EZEK', 21, 19, 'a station prepare thou')],
+      { 'EZEK/21:19': ['H1254'] },
+      { ...verbOpts, replace: ['prepare'] },
+    )
+    expect(r.changed[0]!.after).toBe('a station create thou')
+  })
+
+  test('verses already carrying a correct form are residue, not changes', () => {
+    const r = imputeRendering(verbCorpus, verbLemmas, verbOpts)
+    expect(r.residue.map(x => x.coord.book)).toContain('PSLM')
+    expect(r.changed.some(c => c.coord.book === 'PSLM')).toBe(false)
+  })
+
+  test('mixed bare and paired terms coexist', () => {
+    const r = imputeRendering(
+      [v('GEN', 2, 3, 'which Elohim had prepared, and did prepare again')],
+      { 'GEN/2:3': ['H1254'] },
+      { ...verbOpts, replace: ['prepared=created', 'prepare'] },
+    )
+    expect(r.changed[0]!.after).toBe('which Elohim had created, and did create again')
+  })
+})
