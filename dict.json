@@ -9,18 +9,21 @@
   },
   "entries": [
     {
-      "id": "firstfruit",
-      "rendering": "firstfruit",
-      "status": "decided",
+      "id": "beginning",
+      "rendering": "beginning",
+      "status": "applied",
       "lemmas": [
-        { "lang": "heb", "strongs": "H7225", "translit": "R$'+", "lemma": "rashit" },
-        { "lang": "grk", "strongs": "G536", "translit": "aparxy", "lemma": "aparche" }
+        { "lang": "heb", "strongs": "H7225", "translit": "R$'+", "lemma": "rashit" }
       ],
       "senses": [],
-      "rationale": "Normalize the scattered 'first___' renderings (firstfruits, beginning, chief) where the lemma is R$'+/aparxy. Listed DONE in DICT.txt; README cites RA$'+ ~ rashit ~ firstfruit.",
+      "rationale": "R$'+ is a noun from the root RA$ (rosh, 'head') — head-part, first-in-rank-or-time. Superseded the prior 'firstfruit' rendering 2026-07-24: 'firstfruit' encoded the cultic USE of the lemma, not its sense, and read wrong in the ~29 of 49 verses that have no offering in view (GEN/1:1 'In firstfruit created Elohim'; JERM/26:1 etc. regnal accession-year; PROV/1:7, 8:22, PSLM/111:10 priority; JOB/8:7, 42:12 temporal bracket against 'latter end'). 'first' was rejected on I2 grounds: it is the natural claim of H7223 rishon (174 verses) and Greek protos (146) over this lemma's 49, and it is an adjective where R$'+ is a noun ('In first created Elohim' is worse English than the original). 'beginning' keeps the noun, is uncontested by any other decided entry, and pairs natively with the Greek arche.",
       "refs": [],
-      "notes": [],
-      "decided": null
+      "notes": [
+        "Firstfruit sense DROPPED, not split (human decision 2026-07-24). Genuine 'firstfruits' in the offering passages is H1061 bikkurim, which already carries that English word in the corpus — EX/23:19, EX/34:26 and EZEK/44:30 have BOTH lemmas, so those three are imputed via --ambiguous H1061 and hand-resolved.",
+        "Greek lemma deliberately omitted for now. The correct pair is arche, NOT G536 aparche: the LXX uses aparche for R$'+ only in the offering passages and arche elsewhere, and that mismatch is what dragged this entry cultic. arche needs its own PR3 split off its rule/authority sense ('principalities and powers') before it can be paired here.",
+        "grk lemma fields hold Greek script to key against MorphGNT (see the elohim entry). The prior version of this entry had \"lemma\": \"aparche\" in romanized form, which matched zero verses in data/lemmas.json — the Greek side of this entry had never actually imputed."
+      ],
+      "decided": "2026-07-24"
     },
     {
       "id": "elohim",
