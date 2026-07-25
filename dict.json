@@ -26,6 +26,25 @@
       "decided": "2026-07-24"
     },
     {
+      "id": "create",
+      "rendering": "create",
+      "status": "applied",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H1254", "translit": "BRA", "lemma": "bara" }
+      ],
+      "senses": [],
+      "forms": ["create", "creates", "createth", "creating", "created", "creator", "creators", "creation"],
+      "rationale": "BRA is the divine-making verb: in Biblical Hebrew the qal subject is always Elohim, never a human agent, which is precisely the distinction worth preserving (P3). The corpus inherited YLT's scattered rendering — the 'prepare' family dominates (prepared, prepareth, preparing, Preparer) with 'produced'/'Producing' alongside, and only ~9 of 46 verses already read create/Creator. 'make' and 'made' were rejected: H6213 asah already carries the make-family in 758 verses, and 'made' is the most generic making-word in English, discarding exactly the distinction being normalized. 'fashion' was rejected as belonging to H3335 yatsar — fashion presupposes material (Latin factio, a making by shaping), which is the potter's verb, whereas BRA implies no material; ISAH/43:7 and ISAH/45:18 stack bara/yatsar/asah deliberately and collapse if two of the three are shaping words. Moving BRA off 'prepare' also frees that word for H3559 kun, which legitimately wants it.",
+      "refs": [],
+      "notes": [
+        "SINGLE SENSE BY DECISION (human, 2026-07-25): every H1254 occurrence takes this word, conjugated per forms. The user's governing principle is consistency of verbage, which dies if one word carries multiple senses. Accepted cost — Strong's H1254 also lumps a 'cut down / clear / carve' sense and a hiphil 'fatten', so these verses now read strangely: JOSH/17:15 and JOSH/17:18 ('created for thee there', BHS ובראת / ובראתו, contextually clearing forest), EZEK/21:19 ('a station create thou', carving a signpost), EZEK/23:47 ('created them with their swords'), 1SAM/2:29 ('to create yourselves fat', hiphil להבריאכם). This is a deliberate trade of English tolerability for lemma consistency, not an oversight.",
+        "Greek deliberately unpaired in this commit — one lemma per commit (I6). The counterpart is κτίζω (13 verses, Greek script keys per the elohim entry convention), a separate PR1.",
+        "NUM/16:30 renders the noun בריאה as 'creation' (was 'a strange thing'); PSLM/89:12 was 'appointed'. Both are within sense I.",
+        "Verb entry: forms[] is populated, so impute and check-mapping match these exact forms rather than prefix-stemming. Imputed via per-form replace targets (prepared=created, prepareth=createth, preparing=creating, preparer=Creator, produced=created, producing=creating)."
+      ],
+      "decided": "2026-07-25"
+    },
+    {
       "id": "elohim",
       "rendering": "Elohim",
       "status": "decided",
