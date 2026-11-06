@@ -1,7 +1,8 @@
-// I2 — English rendering collisions across dict entries (subset of dict-lint, focused view).
+// I2 — English-term ownership across dict entries (subset of dict-lint, focused view).
+// Absolute: every term an entry owns (rendering, forms, sense renderings) belongs to that entry alone.
 import { loadDict, lintDict } from '../tool/dict.js'
 import { DICT_PATH, report } from './lib.js'
 
-const { warnings } = lintDict(loadDict(DICT_PATH))
-const collisions = warnings.filter(w => /also used by/.test(w))
+const { errors } = lintDict(loadDict(DICT_PATH))
+const collisions = errors.filter(e => /I2 collision/.test(e))
 process.exit(report('check-collisions', collisions, []) ? 0 : 1)

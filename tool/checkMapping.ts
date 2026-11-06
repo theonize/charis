@@ -31,9 +31,12 @@ export function checkMapping(
 
   for (const e of dict.entries) {
     if (e.status === 'candidate' || !e.rendering) continue
+    // Primary: exact forms when listed, else stem prefix. Alternates (senses) by stem prefix.
+    const alternates = e.senses.map(s => s.rendering).filter((r): r is string => !!r)
+    const stems = [e.rendering, ...alternates].map(r => `${escapeRe(r.split(/\s+/)[0]!)}\\w*`)
     const stemRe = e.forms?.length
-      ? new RegExp(`\\b(${e.forms.map(escapeRe).join('|')})\\b`, 'i')
-      : new RegExp(`\\b${escapeRe(e.rendering.split(/\s+/)[0]!)}\\w*`, 'i')
+      ? new RegExp(`\\b(${[...e.forms.map(escapeRe), ...stems.slice(1)].join('|')})\\b`, 'i')
+      : new RegExp(`\\b(${stems.join('|')})`, 'i')
     const keys = new Set(
       e.lemmas.map(l => (l.lang === 'grk' ? l.lemma : l.strongs)).filter((k): k is string => !!k),
     )

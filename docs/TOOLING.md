@@ -11,7 +11,7 @@ Status 2026-07-24: core built via TDD — `src/` library modules (coords, corpus
 | `glean <lemma\|strongs>` | List every occurrence: coordinates, current rendering, form, context line | PR1.2 |
 | `impute <lemma> <rendering>` | Apply rendering across all occurrences; emits diff for review, never auto-commits | PR1.6 |
 | `check-mapping` | Verify DICT lemma→English is applied 1:1 corpus-wide | I1 |
-| `check-collisions` | Invert DICT; report English words claimed by >1 lemma | I2 |
+| `check-collisions` | Invert DICT owned terms (rendering + forms + sense renderings); any term with >1 owning entry is an error | I2 |
 | `check-translit` | Regenerate transliterals from source spellings; diff against corpus | I3 |
 | `check-structure` | Versification + schema validation | I4 |
 | `check-xref` | Quotation-pair rendering consistency via xref.csv | I5 |

@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/theonize/charis/scripts/dict.schema.json",
   "title": "Charis dictionary",
-  "description": "Structured lemma-rendering dictionary. Authority over DICT.txt. Semantic rules beyond this schema (duplicate Strong's claims, I2 rendering collisions) are enforced by scripts/dict-lint.js.",
+  "description": "Structured lemma-rendering dictionary. Authority over DICT.txt. Semantic rules beyond this schema (duplicate Strong's claims, one lemma per language per entry, I2 absolute English-term ownership) are enforced by tool/dict.ts lintDict.",
   "type": "object",
   "required": ["version", "entries"],
   "properties": {
@@ -32,7 +32,7 @@
         "rendering": {
           "type": ["string", "null"],
           "minLength": 1,
-          "description": "Chosen (or provisional) English rendering / transliteral. Null while undecided."
+          "description": "Primary English term / transliteral: the default at every occurrence not selected by a sense alternate. Null while undecided. Owned by this entry alone (I2)."
         },
         "status": { "enum": ["candidate", "decided", "applied"] },
         "lemmas": {
@@ -42,6 +42,7 @@
         },
         "senses": {
           "type": "array",
+          "description": "Alternate English terms owned by this source term (P1). Each alternate's rendering is owned by this entry alone (I2). Selection must be exhaustive and mechanical before status decided (PR3).",
           "items": { "$ref": "#/$defs/sense" }
         },
         "rationale": {
@@ -101,11 +102,11 @@
       "properties": {
         "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
         "definition": { "type": "string" },
-        "rendering": { "type": ["string", "null"] },
+        "rendering": { "type": ["string", "null"], "description": "The alternate English term; distinct from every term any other entry owns." },
         "definingRefs": {
           "type": "array",
           "minItems": 1,
-          "items": { "type": "string", "description": "Verse coordinate, e.g. GEN 1:1" }
+          "items": { "type": "string", "description": "Corpus verse ID, e.g. GEN/1:1" }
         },
         "adjudication": {
           "type": ["string", "null"],

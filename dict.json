@@ -475,6 +475,395 @@
       "refs": [],
       "notes": [],
       "decided": null
+    },
+    {
+      "id": "shamayim",
+      "rendering": "heaven",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H8064", "translit": "$M'M", "lemma": "shamayim" },
+        { "lang": "grk", "strongs": "G3772", "translit": "ouranos", "lemma": "οὐρανός" }
+      ],
+      "senses": [],
+      "rationale": "The realm above the earth and the divine dwelling — one lexeme in both languages. YLT already 'heaven(s)' in 394/395 H8064 verses and 255/255 οὐρανός verses. Hebrew is plural-only, so the OT surfaces as 'heavens' (P5); Greek number follows οὐρανός. Pair: LXX GEN/1:1 [LXX unverified]; NT 'heaven and earth' (MATT/5:18) echoes GEN/1:1.",
+      "refs": [],
+      "notes": [
+        "Firmament/expanse belongs to raqia H7549 (GEN/1:6), not here; 'sky' left unowned."
+      ],
+      "decided": null
+    },
+    {
+      "id": "erets",
+      "rendering": "earth",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H776", "translit": "ARC", "lemma": "erets" },
+        { "lang": "grk", "strongs": "G1093", "translit": "gy", "lemma": "γῆ" }
+      ],
+      "senses": [
+        {
+          "id": "land",
+          "definition": "a bounded territory — the land of a people or place, or land given/possessed",
+          "rendering": "land",
+          "definingRefs": ["GEN/12:1","EX/3:8","MATT/2:6"],
+          "adjudication": "Collapse test pending (PR3.3): collapse to 'earth' reads 'the earth of Egypt'; collapse to 'land' reads GEN/1:1 'the heavens and the land'. Caveat: the choice is interpretive in GEN/6–8 (flood extent) and GEN/41:57 ('all the earth came to Egypt') — the alternate imports a reading there; a single term would not."
+        }
+      ],
+      "rationale": "The ground-level world as a whole (GEN/1:1) and, in construct/possessive use, a bounded territory ('land of Egypt'). YLT splits it: ~1514 of 2190 H776 verses carry 'land', ~675 'earth'; γῆ 132 'earth' / 76 'land'. Under amended P1 erets may own both terms because neither is any other lemma's: adamah H127 is entered as 'ground' to keep 'land' free. Pair: LXX GEN/1:1 [LXX unverified].",
+      "refs": [],
+      "notes": [
+        "Selection list for the 'land' alternate not built — required before decided (PR3.4)."
+      ],
+      "decided": null
+    },
+    {
+      "id": "adamah",
+      "rendering": "ground",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H127", "translit": "ADMH", "lemma": "adamah" }
+      ],
+      "senses": [],
+      "rationale": "Tillable soil; the namesake of adam (H120, entry `adam`) — GEN/2:7 adam formed from the adamah. YLT 'ground' in 166/211 verses, but also 'land' 56 and 'earth' 24; those move to 'ground' so 'land'/'earth' stay owned by erets (I2).",
+      "refs": [],
+      "notes": [
+        "Greek: LXX renders adamah with γῆ too [LXX unverified]; γῆ is paired with erets, so the NT cannot echo adamah separately — annotate, don't share (I2)."
+      ],
+      "decided": null
+    },
+    {
+      "id": "hayah",
+      "rendering": null,
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H1961", "translit": "H'H", "lemma": "hayah" }
+      ],
+      "senses": [],
+      "rationale": null,
+      "refs": [],
+      "notes": [
+        "3131 verses — the commonest verb in GEN/1:1–5 and the hardest. (a) 'become': dynamic sense; pairs with γίνομαι (LXX GEN/1:3 γενηθήτω/ἐγένετο [LXX unverified]); leaves 'be/is/was' to εἰμί and to supplied copulas in Hebrew nominal clauses, keeping the OT reversible. Cost: GEN/1:2 reads 'the earth became tohu and bohu' — a contested (ruin–restoration) reading that I1 then forces everywhere. (b) 'be': pairs with εἰμί (LXX GEN/1:2 ἦν [LXX unverified]); supplied OT copulas then collide with hayah's own term unless supplied words are marked.",
+        "YLT mixes 'be' ~1819, 'is' ~1444, 'become' ~148, 'hath existed' at GEN/1:2.",
+        "Amended P1 would let hayah own both 'be' and 'become', but selection would be interpretive verse-by-verse (GEN/1:2 again) — not recommended. Human decision; no provisional rendering offered."
+      ],
+      "decided": null
+    },
+    {
+      "id": "tohu",
+      "rendering": "tohu",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H8414", "translit": "+HW", "lemma": "tohu" }
+      ],
+      "senses": [],
+      "rationale": "Loan-word per P4. 19 verses; range formlessness/emptiness/vanity/waste (GEN/1:2, DEUT/32:10 wilderness, 1SAM/12:21 idols, ISAH/40:17 nations counted as tohu). No single English word covers the range without colliding: 'vanity' is hevel's (H1892, 64 verses) natural claim, 'waste' the desolation family's. Transliteration keeps all 19 linked and pairs with bohu — 'tohu-bohu' is already a loan phrase for chaos.",
+      "refs": [],
+      "notes": [
+        "Greek: LXX GEN/1:2 ἀόρατος [LXX unverified] — NOT paired: NT ἀόρατος means 'invisible' (COL/1:15 'image of the invisible God'). LXX equivalence is not lexical equivalence."
+      ],
+      "decided": null
+    },
+    {
+      "id": "bohu",
+      "rendering": "bohu",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H922", "translit": "BHW", "lemma": "bohu" }
+      ],
+      "senses": [],
+      "rationale": "Loan-word per P4, with tohu. 3 verses, always beside tohu: GEN/1:2, ISAH/34:11, JERM/4:23 (Jeremiah's un-creation echo of GEN/1:2 — transliteration keeps the echo, P2).",
+      "refs": [],
+      "notes": [
+        "Greek: LXX ἀκατασκεύαστος [LXX unverified]; absent from NT — nothing to pair."
+      ],
+      "decided": null
+    },
+    {
+      "id": "choshek",
+      "rendering": "darkness",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H2822", "translit": "X$K", "lemma": "choshek" },
+        { "lang": "grk", "strongs": "G4655", "translit": "skotos", "lemma": "σκότος" }
+      ],
+      "senses": [],
+      "rationale": "Absence of light; antonym of or (H216). YLT 'dark…' 77/77; σκότος 28/29. Pair: LXX GEN/1:2 [LXX unverified]; 2COR/4:6 ('light shall shine out of darkness') echoes GEN/1:3.",
+      "refs": [],
+      "notes": [
+        "σκοτία (13 NT verses, JOHN/1:5) is a separate lemma and cannot also be 'darkness' (I2) — needs its own term. araphel H6205 ('thick darkness', 15 verses) likewise."
+      ],
+      "decided": null
+    },
+    {
+      "id": "panim",
+      "rendering": "face",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H6440", "translit": "PN'M", "lemma": "panim" },
+        { "lang": "grk", "strongs": "G4383", "translit": "proswpon", "lemma": "πρόσωπον" }
+      ],
+      "senses": [],
+      "rationale": "Plural-form noun 'face' (GEN/1:2 'upon the face of the abyss'). 1891 verses, mostly inside compound prepositions — lifnei (YLT 'before' ~1068), mipnei, al-pnei. P5 favours rendering those compositionally ('at the face of') so the noun stays visible. Pair: LXX GEN/1:2 [LXX unverified]; πρόσωπον 57/71 'face'.",
+      "refs": [],
+      "notes": [
+        "Alternative: own 'before' as an alternate — but 'before' is the natural claim of ἔμπροσθεν/ἐνώπιον/πρό, which would then need other terms. 'presence' (YLT ~161) left unowned."
+      ],
+      "decided": null
+    },
+    {
+      "id": "tehom",
+      "rendering": "abyss",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H8415", "translit": "+HWM", "lemma": "tehom" },
+        { "lang": "grk", "strongs": "G12", "translit": "abussos", "lemma": "ἄβυσσος" }
+      ],
+      "senses": [],
+      "rationale": "The primeval/subterranean deep. P3: 'abyss' is precise, English-naturalized from the very Greek that renders it (LXX GEN/1:2 [LXX unverified]), and leaves 'deep' for amoq H6013 (16 verses). YLT 'deep' 23/35. PSLM/42:7 'abyss calls to abyss'.",
+      "refs": [],
+      "notes": [
+        "I5: ROM/10:7 'into the abyss' reworks DEUT/30:13, whose Hebrew has yam H3220 'sea', not tehom — annotate the divergence; bend neither entry."
+      ],
+      "decided": null
+    },
+    {
+      "id": "ruach",
+      "rendering": "spirit",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H7307", "translit": "RWX", "lemma": "ruach" }
+      ],
+      "senses": [
+        {
+          "id": "wind",
+          "definition": "moving air as a physical agent",
+          "rendering": "wind",
+          "definingRefs": ["GEN/8:1","EX/14:21"],
+          "adjudication": "Collapse test pending: collapse to 'spirit' gives EX/14:21 'a strong east spirit'. Caveat: GEN/1:2 itself is contested ('spirit of Elohim' vs 'wind of/from Elohim'); selection there is interpretive."
+        }
+      ],
+      "rationale": "Moving air as breath/wind and as animating/divine spirit — one Hebrew lexeme. YLT splits it: 'spirit' ~235, 'wind' ~88, 'breath' ~20 of 348 verses. Amended P1 lets ruach own 'spirit' and 'wind'; 'breath' is left to neshamah H5397 (24 verses).",
+      "refs": [],
+      "notes": [
+        "Greek: πνεῦμα has the same spirit/wind range (JOHN/3:8). If paired it must sit in THIS entry, which conflicts with the existing `pneuma` entry (transliteration undecided; its romanized lemma key matches no MorphGNT verse). Merge (PR4.3) or transliterate both — human decision."
+      ],
+      "decided": null
+    },
+    {
+      "id": "rachaph",
+      "rendering": "flutter",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H7363", "translit": "RXP", "lemma": "rachaph" }
+      ],
+      "senses": [],
+      "rationale": "3 verses: GEN/1:2 (over the waters), DEUT/32:11 (eagle over her young — the echo that glosses GEN/1:2), JERM/23:9 ('all my bones flutter', Qal). 'flutter' fits all three; 'hover' fails JERM/23:9. YLT 'flutter' 3/3.",
+      "refs": [],
+      "notes": [
+        "Greek: LXX GEN/1:2 ἐπιφέρω [LXX unverified] — NOT paired: NT ἐπιφέρω means 'bring upon/inflict' (ROM/3:5, JUDE/1:9)."
+      ],
+      "decided": null
+    },
+    {
+      "id": "mayim",
+      "rendering": "water",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H4325", "translit": "M'M", "lemma": "mayim" },
+        { "lang": "grk", "strongs": "G5204", "translit": "hudwr", "lemma": "ὕδωρ" }
+      ],
+      "senses": [],
+      "rationale": "Plural-only noun; YLT 'water(s)' 523/525; ὕδωρ 68 NT verses. Pair: LXX GEN/1:2 [LXX unverified].",
+      "refs": [],
+      "notes": [
+        "P5: Hebrew plural form → 'waters'; forms list at decision."
+      ],
+      "decided": null
+    },
+    {
+      "id": "amar",
+      "rendering": "say",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H559", "translit": "AMR", "lemma": "amar" },
+        { "lang": "grk", "strongs": "G3004", "translit": "legw", "lemma": "λέγω" }
+      ],
+      "senses": [],
+      "rationale": "Commonest speech verb (4337 verses). MorphGNT lemmatizes εἶπον under λέγω (1997 NT verses). YLT 'say/said/saith'. Pair: LXX GEN/1:3 εἶπεν [LXX unverified].",
+      "refs": [],
+      "notes": [
+        "'speak' reserved for dabar (verb H1696) / λαλέω — not yet entered. 'said in his heart' renders compositionally; no alternate."
+      ],
+      "decided": null
+    },
+    {
+      "id": "or",
+      "rendering": "light",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H216", "translit": "AWR", "lemma": "or" },
+        { "lang": "grk", "strongs": "G5457", "translit": "fws", "lemma": "φῶς" }
+      ],
+      "senses": [],
+      "rationale": "Light (noun). YLT 109/110; φῶς 57/61. Pair: LXX GEN/1:3 [LXX unverified]; 2COR/4:6 echoes GEN/1:3.",
+      "refs": [],
+      "notes": [
+        "The verb or (H215, 'give light') shares the spelling 'light'; if entered, I2 forces a distinct term unless English-term identity becomes headword+part-of-speech (open question). maor H3974 is `luminary`."
+      ],
+      "decided": null
+    },
+    {
+      "id": "raah",
+      "rendering": "see",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H7200", "translit": "RAH", "lemma": "raah" },
+        { "lang": "grk", "strongs": "G3708", "translit": "horaw", "lemma": "ὁράω" }
+      ],
+      "senses": [],
+      "rationale": "Perception verb (1206 verses). MorphGNT lemmatizes εἶδον/ὤφθη under ὁράω (453 NT verses). Pair: LXX GEN/1:4 εἶδεν [LXX unverified]. Niphal 'appear' (YLT ~81) is the passive — render 'be seen' (P5; GEN/1:9) rather than an alternate, leaving 'appear' for φαίνω.",
+      "refs": [],
+      "notes": [
+        "βλέπω (117), θεωρέω (56), θεάομαι are separate lemmas and need distinct terms (e.g. 'look', 'observe'); 'behold' is hinneh/ἰδού's natural claim."
+      ],
+      "decided": null
+    },
+    {
+      "id": "tov",
+      "rendering": "good",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H2896", "translit": "9WB", "lemma": "tov" }
+      ],
+      "senses": [],
+      "rationale": "GEN/1:4 refrain 'that it is good'. 521 verses; YLT 'good' 432.",
+      "refs": [],
+      "notes": [
+        "Greek pair open: LXX GEN/1:4 καλός [LXX unverified], but ἀγαθός is also a major equivalent and the NT uses both (90 verses each). Only one can share 'good' with tov; the other needs a distinct term (e.g. καλός → 'fine'/'noble'). Human decision."
+      ],
+      "decided": null
+    },
+    {
+      "id": "badal",
+      "rendering": "separate",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H914", "translit": "BDL", "lemma": "badal" }
+      ],
+      "senses": [],
+      "rationale": "Hiphil 'make a division' (GEN/1:4,6,14,18; LEV/20:24,26 Israel separated from the peoples). YLT 'separate' 40/40. Keeps 'divide' free for chalaq H2505.",
+      "refs": [],
+      "notes": [
+        "Greek: LXX GEN/1:4 διαχωρίζω [LXX unverified] is absent from SBLGNT. ἀφορίζω (9 NT verses: MATT/25:32, ACTS/13:2, ROM/1:1) is the semantic match; pairing needs LXX evidence."
+      ],
+      "decided": null
+    },
+    {
+      "id": "bein",
+      "rendering": "between",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H996", "translit": "B'N", "lemma": "bein" }
+      ],
+      "senses": [],
+      "rationale": "Preposition, usually doubled (GEN/1:4 'between the light and between the darkness' — P5 keeps the doubling). YLT 'between' 224/248.",
+      "refs": [],
+      "notes": [
+        "Greek: LXX ἀνὰ μέσον is a phrase; NT μεταξύ (9 verses) — pairing not proposed."
+      ],
+      "decided": null
+    },
+    {
+      "id": "qara",
+      "rendering": "call",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H7121", "translit": "QRA", "lemma": "qara" },
+        { "lang": "grk", "strongs": "G2564", "translit": "kalew", "lemma": "καλέω" }
+      ],
+      "senses": [],
+      "rationale": "Call / name / summon / cry out (689 verses); GEN/1:5 naming. YLT 'call' ~565. Pair: LXX GEN/1:5 ἐκάλεσεν [LXX unverified].",
+      "refs": [],
+      "notes": [
+        "Also 'read' (~32 verses: DEUT/17:19, NEHE/8:8 — reading aloud is calling out the text) and 'proclaim' (~57). 'read' could be an alternate, but it is ἀναγινώσκω's natural claim (29 NT verses) and cannot be shared. Decide: 'call' throughout, or own 'read' here and give ἀναγινώσκω another term."
+      ],
+      "decided": null
+    },
+    {
+      "id": "yom",
+      "rendering": "day",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H3117", "translit": "'WM", "lemma": "yom" },
+        { "lang": "grk", "strongs": "G2250", "translit": "hymera", "lemma": "ἡμέρα" }
+      ],
+      "senses": [],
+      "rationale": "YLT 'day' 1869/1930; ἡμέρα 356/368. Pair: LXX GEN/1:5 [LXX unverified].",
+      "refs": [],
+      "notes": [],
+      "decided": null
+    },
+    {
+      "id": "layil",
+      "rendering": "night",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H3915", "translit": "L'LH", "lemma": "layil" },
+        { "lang": "grk", "strongs": "G3571", "translit": "nuks", "lemma": "νύξ" }
+      ],
+      "senses": [],
+      "rationale": "YLT 'night' 219/223; νύξ 58/58. Pair: LXX GEN/1:5 [LXX unverified].",
+      "refs": [],
+      "notes": [],
+      "decided": null
+    },
+    {
+      "id": "erev",
+      "rendering": "evening",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H6153", "translit": "(RB", "lemma": "erev" },
+        { "lang": "grk", "strongs": "G2073", "translit": "hespera", "lemma": "ἑσπέρα" }
+      ],
+      "senses": [],
+      "rationale": "YLT 'evening/even' 125/125; ἑσπέρα 3 NT verses (LUKE/24:29). Pair: LXX GEN/1:5 [LXX unverified].",
+      "refs": [],
+      "notes": [
+        "Homonym erev H6154 ('mixed multitude'/'woof') is a separate Strong's number — not covered. 'between the evenings' (EX/12:6) renders compositionally."
+      ],
+      "decided": null
+    },
+    {
+      "id": "boqer",
+      "rendering": "morning",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H1242", "translit": "BQR", "lemma": "boqer" },
+        { "lang": "grk", "strongs": "G4405", "translit": "prwia", "lemma": "πρωΐα" }
+      ],
+      "senses": [],
+      "rationale": "YLT 'morning' 185/189. Paired noun-to-noun with πρωΐα (MATT/27:1, JOHN/21:4).",
+      "refs": [],
+      "notes": [
+        "LXX GEN/1:5 uses the adverb πρωΐ [LXX unverified]; NT πρωΐ (12 verses) then takes a distinct term ('early') under I2."
+      ],
+      "decided": null
+    },
+    {
+      "id": "echad",
+      "rendering": "one",
+      "status": "candidate",
+      "lemmas": [
+        { "lang": "heb", "strongs": "H259", "translit": "AXD", "lemma": "echad" },
+        { "lang": "grk", "strongs": "G1520", "translit": "ehis", "lemma": "εἷς" }
+      ],
+      "senses": [],
+      "rationale": "Cardinal 'one' — GEN/1:5 'day one' is cardinal, not ordinal (YLT keeps it); DEUT/6:4 'Yahweh is one'. 'first' is rishon H7223 / πρῶτος's claim, so echad never takes 'first': the NT 'first day of the week' (μιᾷ τῶν σαββάτων, JOHN/20:1) becomes 'one of the sabbaths', preserving the GEN/1:5 echo (P2).",
+      "refs": [],
+      "notes": [
+        "YLT 'first' in 39 H259 verses and 14 εἷς verses — those move to 'one'."
+      ],
+      "decided": null
     }
   ]
 }

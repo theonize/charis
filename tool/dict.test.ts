@@ -67,13 +67,51 @@ describe('lintDict cross-field rules', () => {
     expect(r.errors.some(e => /grk.*H7|H7.*grk/i.test(e))).toBe(true)
   })
 
-  test('rendering collision across entries is a warning (I2)', () => {
+  const grk2 = [{ lang: 'grk', strongs: 'G2', translit: null, lemma: null }]
+  const sense = (rendering: string) => ({ id: rendering, definition: 'd', rendering, definingRefs: ['GEN/1:1'] })
+
+  test('rendering collision across entries is an error — I2 is absolute', () => {
+    const r = lintDict(dict(entry({}), entry({ id: 'two', lemmas: grk2 })))
+    expect(r.errors.some(e => /"sample".*already owned by "sample"/.test(e))).toBe(true)
+  })
+
+  test('collision is case-insensitive', () => {
+    const r = lintDict(dict(entry({}), entry({ id: 'two', rendering: 'Sample', lemmas: grk2 })))
+    expect(r.errors.some(e => /I2/.test(e))).toBe(true)
+  })
+
+  test('a listed form colliding with another entry is an error', () => {
     const r = lintDict(dict(
-      entry({}),
-      entry({ id: 'two', lemmas: [{ lang: 'grk', strongs: 'G2', translit: null, lemma: null }] }),
+      entry({ rendering: 'create', forms: ['create', 'creation'] }),
+      entry({ id: 'two', rendering: 'creation', lemmas: grk2 }),
     ))
-    expect(r.warnings.some(w => /collision|also used/i.test(w))).toBe(true)
+    expect(r.errors.some(e => /"creation".*I2/.test(e))).toBe(true)
+  })
+
+  test('one source term may own several English terms (alternates via senses)', () => {
+    const r = lintDict(dict(entry({ rendering: 'earth', senses: [sense('land')] })))
     expect(r.errors).toEqual([])
+  })
+
+  test('an alternate colliding with another entry is an error', () => {
+    const r = lintDict(dict(
+      entry({ rendering: 'earth', senses: [sense('land')] }),
+      entry({ id: 'two', rendering: 'land', lemmas: grk2 }),
+    ))
+    expect(r.errors.some(e => /"land".*I2/.test(e))).toBe(true)
+  })
+
+  test('hebrew + greek correspondent in one entry is one source term', () => {
+    const r = lintDict(dict(entry({ lemmas: [{ lang: 'heb', strongs: 'H1', translit: null, lemma: 'x' }, ...grk2] })))
+    expect(r.errors).toEqual([])
+  })
+
+  test('two lemmas of one language in an entry is an error (P1)', () => {
+    const r = lintDict(dict(entry({ lemmas: [
+      { lang: 'heb', strongs: 'H1', translit: null, lemma: 'x' },
+      { lang: 'heb', strongs: 'H3', translit: null, lemma: 'y' },
+    ] })))
+    expect(r.errors.some(e => /2 heb lemmas/.test(e))).toBe(true)
   })
 
   test('lemma with neither name nor translit is a warning', () => {
