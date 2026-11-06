@@ -1,7 +1,7 @@
 import { formatCoord } from './coords.js'
 import { lexicalText, type Verse } from './corpus.js'
 import { lemmaKey, termForms, type Dict, type Entry } from './dict.js'
-import { emptyAssign, expectedTerms, type Assign } from './assign.js'
+import { expectedTerms, type Assign } from './assign.js'
 import type { CheckResult } from './checkStructure.js'
 
 const escapeRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
@@ -27,7 +27,8 @@ export function checkMapping(
   dict: Dict,
   corpus: Verse[],
   lemmas: Record<string, string[]>,
-  assign: Assign = emptyAssign(),
+  /** Required (no default): a caller that forgets assign.json would silently expect primaries everywhere. */
+  assign: Assign,
 ): CheckResult {
   const errors: string[] = []
   const warnings: string[] = []

@@ -5,7 +5,8 @@ import path from 'node:path'
 import { loadDict } from '../tool/dict.js'
 import { loadBibleCsv } from '../tool/corpus.js'
 import { checkMapping } from '../tool/checkMapping.js'
-import { BIBLE_CSV, DICT_PATH, ROOT, report } from './lib.js'
+import { loadAssign } from '../tool/assign.js'
+import { ASSIGN_PATH, BIBLE_CSV, DICT_PATH, ROOT, report } from './lib.js'
 
 const LEMMAS = path.join(ROOT, 'data', 'lemmas.json')
 if (!fs.existsSync(LEMMAS)) {
@@ -17,5 +18,6 @@ const { errors, warnings } = checkMapping(
   loadDict(DICT_PATH),
   loadBibleCsv(BIBLE_CSV),
   JSON.parse(fs.readFileSync(LEMMAS, 'utf8')),
+  loadAssign(ASSIGN_PATH),
 )
 process.exit(report('check-mapping', errors, warnings) ? 0 : 1)
