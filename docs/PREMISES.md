@@ -6,7 +6,12 @@ The axioms of the Charis translation. Everything else in `docs/` derives from th
 
 Every English term in the text traces to exactly **one** source term, everywhere it occurs, modulo grammatical conjugation: from any English word, its original is recoverable. English → source is a function; this is the invariant that does not bend.
 
-A *source term* is one Hebrew/Aramaic lemma together with at most one approved Greek correspondent (P2) — e.g. `elohim` + `θεός`. A source term normally owns one English term (or one transliterated loanword). It **may** own more than one, provided none of them is owned by any other source term: the English vocabulary is partitioned by source, never shared. Each additional term is an enumerated alternate in the dictionary (DICT), with the rule or verse list that selects it — never decided silently verse-by-verse.
+A *source term* is a Hebrew/Aramaic lemma together with the Greek lemma(s) that share its definition (P2) — e.g. `elohim` + `θεός`, `ruach` + `πνεῦμα`, `qadosh` + `hagios`. Every Greek lemma should have such a Hebrew pair; a Greek-only entry is a gap to close, not a resting state. A source term normally owns one English term (or one transliterated loanword). It **may** own more than one, provided none of them is owned by any other source term: the English vocabulary is partitioned by source, never shared. Each additional term is an enumerated alternate in the dictionary (DICT).
+
+- **Identity is spelling.** An English term is its spelling, whatever its part of speech: *sin* has one original, noun or verb. Inflected forms belong to their headword's owner.
+- **Binding.** Within one language, each English term is carried by at most one lemma, so reversibility holds per language. A source term may therefore group several lemmas of one language only if their terms differ: `hayah` owns *be* and *become*; εἰμί carries *be*, γίνομαι *become*.
+- **Selection is data.** Which of a lemma's terms stands at each occurrence is recorded per occurrence in `assign.json`, never decided silently verse-by-verse.
+- **Supplied words are marked.** English with no source lexeme (supplied copulas, articles, case prepositions) is outside P1 and must be marked `[like this]` — the machine analogue of italics — so that every unmarked word is reversible.
 
 (Amended 2026-11-06: previously "one lemma ↔ one English lemma" with a sense-split exception. The revision keeps reversibility absolute and makes multiplicity on the source side explicit and bounded.)
 

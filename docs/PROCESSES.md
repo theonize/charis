@@ -26,7 +26,7 @@ When one source term resists a single English term (P1 permits several, each own
 1. Cluster occurrences by usage context (AI-assisted).
 2. Draft alternates as `senses[]`: definition, defining verses, proposed English term. Every proposed term must be unowned in DICT (I2) — check against the terms other lemmas naturally claim, not just current entries.
 3. Adversarial pass: attempt to collapse back to the primary rendering. An alternate survives only if collapse demonstrably loses meaning. Note where the choice between terms is itself interpretive (e.g. *earth*/*land* in the flood narrative) — the alternate then imports interpretation at those verses.
-4. Before `decided`: the selection must be exhaustive and mechanical — a morphological condition or an explicit verse list per alternate; the primary covers everything else.
+4. Before `decided`: the selection must be exhaustive and mechanical — recorded in `assign.json` (entry → verse → one term per occurrence, in source order); every unlisted occurrence takes its default. Impute each term separately (`impute --term`); verses mixing terms go to the ambiguous queue.
 5. Record in DICT with the adjudication note.
 
 ## PR4 — Collision resolution
@@ -34,7 +34,7 @@ When one source term resists a single English term (P1 permits several, each own
 When I2 flags an English term with two owners:
 1. Determine which source term has the stronger claim (frequency, precision of fit).
 2. Re-run PR1 for the losing term.
-3. If the two lemmas are genuine cross-language correspondents (Hebrew + Greek, P2), merge them into one entry. There are no intentional collisions.
+3. If the two lemmas share a definition across languages (Hebrew + Greek, P2), merge them into one entry. There are no intentional collisions.
 
 ## PR5 — Xref / quotation audit
 

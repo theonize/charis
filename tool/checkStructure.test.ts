@@ -38,4 +38,11 @@ describe('checkStructure', () => {
     const r = checkStructure([v('GEN', 1, 1, '')])
     expect(r.warnings.some(w => /empty/i.test(w))).toBe(true)
   })
+
+  test('supplied [..] markers must pair and not nest; bare [] verse is the empty marker', () => {
+    const ok = checkStructure([v('GEN', 1, 1, 'that [it is] good'), v('GEN', 1, 2, '[]')])
+    expect(ok.errors).toEqual([])
+    for (const bad of ['that [it is good', 'that it is] good', 'a [b [c] d]', 'a [] b'])
+      expect(checkStructure([v('GEN', 1, 1, bad)]).errors.some(e => /supplied/.test(e))).toBe(true)
+  })
 })

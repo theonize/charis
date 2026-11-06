@@ -28,6 +28,15 @@ export function checkStructure(corpus: Verse[]): CheckResult {
     if (!verses) chapters.set(v.coord.chapter, (verses = new Set()))
     verses.add(v.coord.verse)
     if (!v.text.trim()) warnings.push(`empty verse ${id}`)
+    // Supplied-word marker `[...]` (P1/I8): brackets must pair and not nest; `[]` alone is the empty-verse marker.
+    if (v.text.trim() !== '[]') {
+      let depth = 0
+      for (const ch of v.text) {
+        if (ch === '[' && ++depth > 1) break
+        if (ch === ']' && --depth < 0) break
+      }
+      if (depth !== 0 || /\[\s*\]/.test(v.text)) errors.push(`${id}: malformed supplied-word [..] marker`)
+    }
   }
 
   for (const [book, chapters] of books) {

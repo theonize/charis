@@ -1,5 +1,5 @@
 import { formatCoord, type Coord } from './coords.js'
-import type { Verse } from './corpus.js'
+import { SUPPLIED_RE, type Verse } from './corpus.js'
 
 export interface ImputeOptions {
   /** Source-lemma keys selecting target verses (Strong's for heb, lemma string for grk). */
@@ -15,6 +15,12 @@ export interface ImputeOptions {
   rendering: string
   /** Sibling lemmas whose presence makes string replacement unsafe (same English word from another lemma) — verse is skipped and reported. */
   ambiguousWith?: string[]
+  /**
+   * Per-verse selection for entries owning several terms (assign.json): `apply`
+   * imputes, `skip` leaves the verse to another term's run, `ambiguous` (mixed
+   * terms in one verse) defers it to the manual/AI pass. Default: apply.
+   */
+  verseFilter?: (verseId: string) => 'apply' | 'skip' | 'ambiguous'
 }
 
 export interface ImputeChange {
@@ -62,19 +68,30 @@ export function imputeRendering(
   const result: ImputeResult = { changed: [], ambiguous: [], residue: [] }
 
   for (const v of corpus) {
-    const source = lemmas[formatCoord(v.coord)]
+    const id = formatCoord(v.coord)
+    const source = lemmas[id]
     if (!source || !source.some(l => keys.has(l))) continue
-    if (source.some(l => ambiguous.has(l))) {
+    const selected = opts.verseFilter?.(id) ?? 'apply'
+    if (selected === 'skip') continue
+    if (selected === 'ambiguous' || source.some(l => ambiguous.has(l))) {
       result.ambiguous.push(v)
       continue
     }
     let touched = false
-    const after = v.text.replace(re, m => {
+    const sub = (segment: string) => segment.replace(re, m => {
       touched = true
       const target = targets.get(m.toLowerCase()) ?? opts.rendering
       const upper = m[0]! === m[0]!.toUpperCase()
       return upper ? target[0]!.toUpperCase() + target.slice(1) : target.toLowerCase()
     })
+    // Supplied `[...]` spans have no source lexeme — never rewrite them.
+    let after = ''
+    let last = 0
+    for (const m of v.text.matchAll(SUPPLIED_RE)) {
+      after += sub(v.text.slice(last, m.index)) + m[0]
+      last = m.index! + m[0].length
+    }
+    after += sub(v.text.slice(last))
     if (!touched) result.residue.push(v)
     else if (after !== v.text) result.changed.push({ coord: v.coord, before: v.text, after })
   }

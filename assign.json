@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "note": "Per-occurrence selection among an entry's English terms (P1, PR3.4): assignments[entry][verse] = one term per occurrence of the entry's lemmas in that verse, in data/lemmas.json source order. Unlisted occurrences take their default (the lemma's first bound term, else the entry's primary rendering). Human-gated like dict.json: for candidate entries these are proposals. Validate: npm run check-assign.",
+  "assignments": {
+    "erets": {
+      "GEN/12:1": ["land", "land"],
+      "EX/3:8": ["land", "land", "land"],
+      "MATT/2:6": ["land"]
+    },
+    "ruach": {
+      "GEN/8:1": ["wind"],
+      "EX/14:21": ["wind"],
+      "JOHN/3:8": ["wind", "spirit"]
+    },
+    "hayah": {
+      "GEN/2:7": ["become"]
+    }
+  }
+}

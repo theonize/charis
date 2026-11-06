@@ -9,8 +9,9 @@ Status 2026-07-24: core built via TDD — `src/` library modules (coords, corpus
 | Script | Purpose | Serves |
 |---|---|---|
 | `glean <lemma\|strongs>` | List every occurrence: coordinates, current rendering, form, context line | PR1.2 |
-| `impute <lemma> <rendering>` | Apply rendering across all occurrences; emits diff for review, never auto-commits | PR1.6 |
+| `impute <entry> --replace … [--term t]` | Apply one headword across the occurrences that expect it (assign.json / defaults); mixed verses → ambiguous queue; never touches `[supplied]` text; emits diff, never auto-commits | PR1.6 |
 | `check-mapping` | Verify DICT lemma→English is applied 1:1 corpus-wide | I1 |
+| `check-assign` | Validate `assign.json` (entry → verse → term per occurrence) against dict bindings and lemma occurrence counts | I1 |
 | `check-collisions` | Invert DICT owned terms (rendering + forms + sense renderings); any term with >1 owning entry is an error | I2 |
 | `check-translit` | Regenerate transliterals from source spellings; diff against corpus | I3 |
 | `check-structure` | Versification + schema validation | I4 |
@@ -22,6 +23,8 @@ Status 2026-07-24: core built via TDD — `src/` library modules (coords, corpus
 | `build` | Regenerate CSV/JSON/graph outputs from canonical data | PR7 |
 | `stats` | Progress dashboard: lemmas decided/applied, books passed, invariant status | — |
 | `embed-db` | Build/refresh libsql verse-embedding DB (see below) | PR1.2–3, PR5 |
+
+Selection data: `assign.json` (root, canonical, hand-maintained, human-gated like dict.json) holds the per-occurrence choice among an entry's terms; unlisted occurrences take their default. Shape: `{ version, assignments: { <entry-id>: { <verse-id>: [term, …] } } }`, validated by `check-assign`.
 
 Prerequisite data work: **done** — DICT.txt migrated by hand to `dict.json` (2026-07-24; 30 entries: lemma, Strong's, transliteral, rendering, senses[], status, rationale). `scripts/dict-lint.js` guards it. DICT.txt retained as historical source; new decisions go in dict.json only. Source quirks preserved as entry notes rather than silently fixed (H210→H120, H3405→H3045 per their own URLs; bare G5281; duplicate Neighbor; theos double-claim).
 

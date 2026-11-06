@@ -1,14 +1,18 @@
-// impute <entry-id> --replace <t1,t2|old=new> [--ambiguous H410,H433] [--write]
+// impute <entry-id> --replace <t1,t2|old=new> [--term <headword>] [--ambiguous H410,H433] [--write]
 // PR1.6 — apply a decided rendering across all lemma-matched verses in bible.csv.
+// --term picks one of the entry's headwords (default: primary). Verses go to the
+// term that assign.json (or each occurrence's default) expects there; verses that
+// mix terms are deferred to the ambiguous queue. Supplied [..] text is never touched.
 // Dry-run by default: prints the diff. --write rewrites bible.csv (changed rows only,
 // legacy unquoted-text row style preserved). Never commits — review the git diff.
 import fs from 'node:fs'
 import path from 'node:path'
-import { loadDict } from '../tool/dict.js'
+import { headwords, lemmaKey, lemmaTerms, loadDict, termForms } from '../tool/dict.js'
+import { expectedTerms, loadAssign } from '../tool/assign.js'
 import { loadBibleCsv } from '../tool/corpus.js'
 import { imputeRendering } from '../tool/impute.js'
 import { formatCoord } from '../tool/coords.js'
-import { BIBLE_CSV, DICT_PATH, ROOT } from './lib.js'
+import { ASSIGN_PATH, BIBLE_CSV, DICT_PATH, ROOT } from './lib.js'
 
 const args = process.argv.slice(2)
 const write = args.includes('--write')
@@ -16,11 +20,12 @@ const flag = (name: string) => {
   const i = args.indexOf(name)
   return i >= 0 ? args[i + 1] : undefined
 }
-const entryId = args.filter(a => !a.startsWith('--') && a !== flag('--replace') && a !== flag('--ambiguous'))[0]
+const flagValues = new Set(['--replace', '--ambiguous', '--term'].map(flag))
+const entryId = args.filter(a => !a.startsWith('--') && !flagValues.has(a))[0]
 const replace = flag('--replace')?.split(',')
 
 if (!entryId || !replace?.length) {
-  console.error('usage: npm run impute -- <entry-id> --replace God,gods [--ambiguous H410,H433] [--write]')
+  console.error('usage: npm run impute -- <entry-id> --replace God,gods [--term <headword>] [--ambiguous H410,H433] [--write]')
   console.error('       a replace term may target its own form: --replace prepared=created,preparing=creating')
   process.exit(2)
 }
@@ -36,17 +41,24 @@ if (entry.status === 'candidate' || !entry.rendering) {
   process.exit(2)
 }
 
+const term = (flag('--term') ?? entry.rendering).toLowerCase()
+if (!headwords(entry).includes(term)) {
+  console.error(`"${term}" is not a headword of entry "${entryId}" (${headwords(entry).join(', ')})`)
+  process.exit(2)
+}
+
 // An explicit `old=new` target that is not a declared form would be invisible to
-// check-mapping (it matches entry.forms exactly), so the entry must declare it first.
-if (entry.forms?.length) {
-  const declared = new Set(entry.forms.map(f => f.toLowerCase()))
+// check-mapping (it matches declared forms exactly), so the entry must declare it first.
+const forms = termForms(entry, term)
+if (forms.length) {
+  const declared = new Set(forms.map(f => f.toLowerCase()))
   const undeclared = replace
     .filter(t => t.includes('='))
     .map(t => t.slice(t.indexOf('=') + 1).trim())
     .filter(f => f && !declared.has(f.toLowerCase()))
   if (undeclared.length) {
     console.error(`entry "${entryId}" does not declare form(s): ${[...new Set(undeclared)].join(', ')}`)
-    console.error(`declared forms: ${entry.forms.join(', ')}`)
+    console.error(`declared forms: ${forms.join(', ')}`)
     console.error('add them to the entry\'s forms array first (PR1.5) — check-mapping matches forms exactly')
     process.exit(2)
   }
@@ -54,19 +66,27 @@ if (entry.forms?.length) {
 
 const lemmas = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'lemmas.json'), 'utf8'))
 const corpus = loadBibleCsv(BIBLE_CSV)
-const keys = entry.lemmas.map(l => (l.lang === 'grk' ? l.lemma : l.strongs)).filter((k): k is string => !!k)
+const assign = loadAssign(ASSIGN_PATH)
+// Only lemmas that carry this term (P1 binding) select verses.
+const keys = entry.lemmas.filter(l => lemmaTerms(entry, l).includes(term)).map(lemmaKey).filter((k): k is string => !!k)
+const rendering = flag('--term') ?? entry.rendering
 
 const r = imputeRendering(corpus, lemmas, {
   keys,
   replace,
-  rendering: entry.rendering,
+  rendering,
   ambiguousWith: flag('--ambiguous')?.split(',') ?? [],
+  verseFilter: id => {
+    const expected = expectedTerms(entry, id, lemmas[id] ?? [], assign)
+    if (expected.every(t => t === term)) return 'apply'
+    return expected.includes(term) ? 'ambiguous' : 'skip'
+  },
 })
 
 for (const c of r.changed.slice(0, 10))
   console.log(`${formatCoord(c.coord)}\n  - ${c.before}\n  + ${c.after}`)
 if (r.changed.length > 10) console.log(`  ... and ${r.changed.length - 10} more`)
-console.log(`\nimpute ${entryId}: ${r.changed.length} verses changed, ${r.ambiguous.length} ambiguous (skipped), ${r.residue.length} residue (no replace-term found)`)
+console.log(`\nimpute ${entryId} → "${rendering}": ${r.changed.length} verses changed, ${r.ambiguous.length} ambiguous (skipped), ${r.residue.length} residue (no replace-term found)`)
 if (r.ambiguous.length) console.log('ambiguous:', r.ambiguous.slice(0, 20).map(v => formatCoord(v.coord)).join(' '), r.ambiguous.length > 20 ? '...' : '')
 if (r.residue.length) console.log('residue:', r.residue.slice(0, 20).map(v => formatCoord(v.coord)).join(' '), r.residue.length > 20 ? '...' : '')
 

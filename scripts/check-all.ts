@@ -6,8 +6,9 @@ import { loadDict, lintDict } from '../tool/dict.js'
 import { loadBibleCsv } from '../tool/corpus.js'
 import { checkStructure } from '../tool/checkStructure.js'
 import { checkMapping } from '../tool/checkMapping.js'
+import { checkAssign, loadAssign } from '../tool/assign.js'
 import { loadXrefCsv } from '../tool/xref.js'
-import { BIBLE_CSV, DICT_PATH, ROOT, XREF_CSV, report } from './lib.js'
+import { ASSIGN_PATH, BIBLE_CSV, DICT_PATH, ROOT, XREF_CSV, report } from './lib.js'
 
 let ok = true
 
@@ -19,7 +20,11 @@ ok = report('check-structure (I4)', structure.errors, structure.warnings) && ok
 
 const LEMMAS = path.join(ROOT, 'data', 'lemmas.json')
 if (fs.existsSync(LEMMAS)) {
-  const mapping = checkMapping(loadDict(DICT_PATH), loadBibleCsv(BIBLE_CSV), JSON.parse(fs.readFileSync(LEMMAS, 'utf8')))
+  const lemmaTable = JSON.parse(fs.readFileSync(LEMMAS, 'utf8'))
+  const assign = loadAssign(ASSIGN_PATH)
+  const assigned = checkAssign(loadDict(DICT_PATH), assign, lemmaTable)
+  ok = report('check-assign (I1 selection)', assigned.errors, assigned.warnings) && ok
+  const mapping = checkMapping(loadDict(DICT_PATH), loadBibleCsv(BIBLE_CSV), lemmaTable, assign)
   ok = report('check-mapping (I1 corpus side)', mapping.errors, mapping.warnings) && ok
 } else {
   console.log('check-mapping: SKIPPED — data/lemmas.json missing (run: npm run build-lemmas)')
