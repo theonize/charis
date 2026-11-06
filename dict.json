@@ -386,19 +386,6 @@
       "decided": null
     },
     {
-      "id": "pneuma",
-      "rendering": null,
-      "status": "candidate",
-      "lemmas": [
-        { "lang": "grk", "strongs": null, "translit": null, "lemma": "pneuma" }
-      ],
-      "senses": [],
-      "rationale": null,
-      "refs": [],
-      "notes": ["DICT.txt: 'pneuma -> [trans?]' — transliteration candidacy undecided."],
-      "decided": null
-    },
-    {
       "id": "angelos",
       "rendering": null,
       "status": "candidate",
@@ -533,18 +520,28 @@
     },
     {
       "id": "hayah",
-      "rendering": null,
+      "rendering": "be",
       "status": "candidate",
       "lemmas": [
-        { "lang": "heb", "strongs": "H1961", "translit": "H'H", "lemma": "hayah" }
+        { "lang": "heb", "strongs": "H1961", "translit": "H'H", "lemma": "hayah" },
+        { "lang": "grk", "strongs": "G1510", "translit": "eimi", "lemma": "εἰμί", "terms": ["be"] },
+        { "lang": "grk", "strongs": "G1096", "translit": "ginomai", "lemma": "γίνομαι", "terms": ["become"] }
       ],
-      "senses": [],
-      "rationale": null,
+      "senses": [
+        {
+          "id": "become",
+          "definition": "come to be, become, come to pass — change of state or event",
+          "rendering": "become",
+          "definingRefs": ["GEN/2:7","JOHN/1:14"],
+          "adjudication": "User decision 2026-11-06: hayah owns 'be' and 'become', selected by context. Collapse test: 'be' alone loses GEN/2:7 'man became a living soul'; 'become' alone forces stative clauses ('I become who I become', EX/3:14)."
+        }
+      ],
+      "rationale": "The commonest verb in GEN/1:1–5 (3131 verses). Owns two terms by context (amended P1). Greek pairs bind per term: εἰμί (2094 NT verses) carries 'be', γίνομαι (625) carries 'become' — LXX GEN/1:2 ἦν, GEN/1:3 γενηθήτω/ἐγένετο [LXX unverified]. Hebrew nominal clauses have no verb: their English copula is supplied and must be marked [is], which keeps 'be' reversible.",
       "refs": [],
       "notes": [
-        "3131 verses — the commonest verb in GEN/1:1–5 and the hardest. (a) 'become': dynamic sense; pairs with γίνομαι (LXX GEN/1:3 γενηθήτω/ἐγένετο [LXX unverified]); leaves 'be/is/was' to εἰμί and to supplied copulas in Hebrew nominal clauses, keeping the OT reversible. Cost: GEN/1:2 reads 'the earth became tohu and bohu' — a contested (ruin–restoration) reading that I1 then forces everywhere. (b) 'be': pairs with εἰμί (LXX GEN/1:2 ἦν [LXX unverified]); supplied OT copulas then collide with hayah's own term unless supplied words are marked.",
-        "YLT mixes 'be' ~1819, 'is' ~1444, 'become' ~148, 'hath existed' at GEN/1:2.",
-        "Amended P1 would let hayah own both 'be' and 'become', but selection would be interpretive verse-by-verse (GEN/1:2 again) — not recommended. Human decision; no provisional rendering offered."
+        "GEN/1:2 (haytah) is the crux and is deliberately NOT in assign.json: unlisted means default 'be' ('the earth was tohu and bohu'); listing it 'become' gives 'became' (the ruin–restoration reading). The default is not a decision — review GEN/1:2 explicitly before hayah is decided.",
+        "vayehi ('and it came to pass', ~800×) needs a policy: 'become' (LXX καὶ ἐγένετο) or 'be'. It is the bulk of the assign.json work.",
+        "Forms (be/is/was/were/been…, become/became…) to be listed at decision; until then stem matching cannot see irregular forms."
       ],
       "decided": null
     },
@@ -631,21 +628,24 @@
       "rendering": "spirit",
       "status": "candidate",
       "lemmas": [
-        { "lang": "heb", "strongs": "H7307", "translit": "RWX", "lemma": "ruach" }
+        { "lang": "heb", "strongs": "H7307", "translit": "RWX", "lemma": "ruach" },
+        { "lang": "grk", "strongs": "G4151", "translit": "pneuma", "lemma": "πνεῦμα" }
       ],
       "senses": [
         {
           "id": "wind",
           "definition": "moving air as a physical agent",
           "rendering": "wind",
-          "definingRefs": ["GEN/8:1","EX/14:21"],
+          "definingRefs": ["GEN/8:1","EX/14:21","JOHN/3:8"],
           "adjudication": "Collapse test pending: collapse to 'spirit' gives EX/14:21 'a strong east spirit'. Caveat: GEN/1:2 itself is contested ('spirit of Elohim' vs 'wind of/from Elohim'); selection there is interpretive."
         }
       ],
       "rationale": "Moving air as breath/wind and as animating/divine spirit — one Hebrew lexeme. YLT splits it: 'spirit' ~235, 'wind' ~88, 'breath' ~20 of 348 verses. Amended P1 lets ruach own 'spirit' and 'wind'; 'breath' is left to neshamah H5397 (24 verses).",
       "refs": [],
       "notes": [
-        "Greek: πνεῦμα has the same spirit/wind range (JOHN/3:8). If paired it must sit in THIS entry, which conflicts with the existing `pneuma` entry (transliteration undecided; its romanized lemma key matches no MorphGNT verse). Merge (PR4.3) or transliterate both — human decision."
+        "Paired with πνεῦμα (user decision 2026-11-06: ruach/pneuma). πνεῦμα has the same spirit/wind range; YLT renders it 'spirit' in 340/344 NT verses, so the NT 'wind' alternate is new.",
+        "Merged from the retired `pneuma` entry (DICT.txt 'pneuma -> [trans?]', romanized key that matched no MorphGNT verse). Pairing settles the transliteration question in favour of the shared English terms.",
+        "assign.json proposals: GEN/8:1, EX/14:21 → wind; JOHN/3:8 → [wind, spirit] — 'the pneuma blows where it wills … born of the pneuma'. Interpretive: John's wordplay rests on the double sense; one term per occurrence forces a choice."
       ],
       "decided": null
     },
@@ -748,13 +748,14 @@
       "rendering": "separate",
       "status": "candidate",
       "lemmas": [
-        { "lang": "heb", "strongs": "H914", "translit": "BDL", "lemma": "badal" }
+        { "lang": "heb", "strongs": "H914", "translit": "BDL", "lemma": "badal" },
+        { "lang": "grk", "strongs": "G873", "translit": "aforizw", "lemma": "ἀφορίζω" }
       ],
       "senses": [],
-      "rationale": "Hiphil 'make a division' (GEN/1:4,6,14,18; LEV/20:24,26 Israel separated from the peoples). YLT 'separate' 40/40. Keeps 'divide' free for chalaq H2505.",
+      "rationale": "Hiphil 'make a division' (GEN/1:4,6,14,18; LEV/20:24,26 Israel separated from the peoples). YLT 'separate' 40/40. Keeps 'divide' free for chalaq H2505. Paired with ἀφορίζω (shared definition; YLT NT 'separate' 9/9: MATT/25:32, ACTS/13:2, ROM/1:1).",
       "refs": [],
       "notes": [
-        "Greek: LXX GEN/1:4 διαχωρίζω [LXX unverified] is absent from SBLGNT. ἀφορίζω (9 NT verses: MATT/25:32, ACTS/13:2, ROM/1:1) is the semantic match; pairing needs LXX evidence."
+        "LXX GEN/1:4 uses διαχωρίζω [LXX unverified], absent from SBLGNT; pairing is by shared definition, not LXX equivalence."
       ],
       "decided": null
     },
@@ -763,13 +764,15 @@
       "rendering": "between",
       "status": "candidate",
       "lemmas": [
-        { "lang": "heb", "strongs": "H996", "translit": "B'N", "lemma": "bein" }
+        { "lang": "heb", "strongs": "H996", "translit": "B'N", "lemma": "bein" },
+        { "lang": "grk", "strongs": "G3342", "translit": "metaksu", "lemma": "μεταξύ" }
       ],
       "senses": [],
-      "rationale": "Preposition, usually doubled (GEN/1:4 'between the light and between the darkness' — P5 keeps the doubling). YLT 'between' 224/248.",
+      "rationale": "Preposition, usually doubled (GEN/1:4 'between the light and between the darkness' — P5 keeps the doubling). YLT 'between' 224/248. Paired with μεταξύ (shared definition; YLT NT 'between' 7/9).",
       "refs": [],
       "notes": [
-        "Greek: LXX ἀνὰ μέσον is a phrase; NT μεταξύ (9 verses) — pairing not proposed."
+        "μεταξύ also means 'next/afterward' (ACTS/13:42 'the next sabbath', 'meanwhile' JOHN/4:31): render 'between' throughout or add an alternate — decide at PR3.",
+        "LXX ἀνὰ μέσον [LXX unverified] is a phrase, not a lemma pair."
       ],
       "decided": null
     },
