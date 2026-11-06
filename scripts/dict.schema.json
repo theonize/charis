@@ -91,7 +91,13 @@
         },
         "lemma": {
           "type": ["string", "null"],
-          "description": "Conventional romanized lemma name."
+          "description": "Conventional romanized lemma name (heb); Greek script for grk — the MorphGNT key."
+        },
+        "terms": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Headwords of this entry (rendering / sense renderings) this lemma carries. Omitted = all. Required when the entry holds several lemmas of one language; each headword binds to at most one lemma per language (P1)."
         }
       },
       "additionalProperties": false
@@ -110,7 +116,12 @@
         },
         "adjudication": {
           "type": ["string", "null"],
-          "description": "PR3 collapse-test note: why this split survives."
+          "description": "PR3 collapse-test note: why this alternate survives."
+        },
+        "forms": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Explicit conjugation forms of this alternate (e.g. become, became, becometh). Exact-match, like the entry-level forms; owned by this entry (I2)."
         }
       },
       "additionalProperties": false

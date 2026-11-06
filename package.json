@@ -17,6 +17,7 @@
     "check-collisions": "tsx scripts/check-collisions.ts",
     "check-mapping": "tsx scripts/check-mapping.ts",
     "check-alignment": "tsx scripts/check-alignment.ts",
+    "check-assign": "tsx scripts/check-assign.ts",
     "translit": "tsx scripts/translit.ts",
     "impute": "tsx scripts/impute.ts",
     "check-all": "tsx scripts/check-all.ts",

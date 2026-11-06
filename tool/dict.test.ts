@@ -93,6 +93,14 @@ describe('lintDict cross-field rules', () => {
     expect(r.errors).toEqual([])
   })
 
+  test('an alternate\'s listed forms are owned too', () => {
+    const r = lintDict(dict(
+      entry({ rendering: 'be', senses: [{ ...sense('become'), forms: ['become', 'became'] }] }),
+      entry({ id: 'two', rendering: 'became', lemmas: grk2 }),
+    ))
+    expect(r.errors.some(e => /"became".*I2/.test(e))).toBe(true)
+  })
+
   test('an alternate colliding with another entry is an error', () => {
     const r = lintDict(dict(
       entry({ rendering: 'earth', senses: [sense('land')] }),
@@ -106,12 +114,45 @@ describe('lintDict cross-field rules', () => {
     expect(r.errors).toEqual([])
   })
 
-  test('two lemmas of one language in an entry is an error (P1)', () => {
-    const r = lintDict(dict(entry({ lemmas: [
-      { lang: 'heb', strongs: 'H1', translit: null, lemma: 'x' },
-      { lang: 'heb', strongs: 'H3', translit: null, lemma: 'y' },
-    ] })))
-    expect(r.errors.some(e => /2 heb lemmas/.test(e))).toBe(true)
+  describe('per-language term binding (P1)', () => {
+    const hayah = (grk: object[]) => entry({
+      rendering: 'be', senses: [sense('become')],
+      lemmas: [{ lang: 'heb', strongs: 'H1', translit: null, lemma: 'hayah' }, ...grk],
+    })
+    const eimi = (terms?: string[]) => ({ lang: 'grk', strongs: 'G2', translit: null, lemma: 'εἰμί', ...(terms ? { terms } : {}) })
+    const ginomai = (terms?: string[]) => ({ lang: 'grk', strongs: 'G3', translit: null, lemma: 'γίνομαι', ...(terms ? { terms } : {}) })
+
+    test('several lemmas of one language, each bound to its own term, is valid', () => {
+      expect(lintDict(dict(hayah([eimi(['be']), ginomai(['become'])]))).errors).toEqual([])
+    })
+
+    test('several lemmas of one language without bindings is an error', () => {
+      const r = lintDict(dict(hayah([eimi(), ginomai()])))
+      expect(r.errors.some(e => /2 grk lemmas.*must declare its terms/.test(e))).toBe(true)
+    })
+
+    test('one term bound to two lemmas of one language is an error', () => {
+      const r = lintDict(dict(hayah([eimi(['be']), ginomai(['be', 'become'])])))
+      expect(r.errors.some(e => /"be" bound to two grk lemmas/.test(e))).toBe(true)
+    })
+
+    test('a bound term must be a headword of the entry', () => {
+      const r = lintDict(dict(hayah([eimi(['exist'])])))
+      expect(r.errors.some(e => /"exist", not a headword/.test(e))).toBe(true)
+    })
+
+    test('the same greek lemma in two entries is an error', () => {
+      const r = lintDict(dict(
+        entry({ lemmas: [{ lang: 'heb', strongs: 'H1', translit: null, lemma: 'x' }, eimi()] }),
+        entry({ id: 'two', rendering: 'other', lemmas: [{ lang: 'heb', strongs: 'H5', translit: null, lemma: 'y' }, { ...eimi(), strongs: 'G7' }] }),
+      ))
+      expect(r.errors.some(e => /εἰμί already claimed/.test(e))).toBe(true)
+    })
+
+    test('greek-only entry is a warning (pair with Hebrew, P2)', () => {
+      const r = lintDict(dict(entry({ lemmas: grk2 })))
+      expect(r.warnings.some(w => /no Hebrew pair/.test(w))).toBe(true)
+    })
   })
 
   test('lemma with neither name nor translit is a warning', () => {

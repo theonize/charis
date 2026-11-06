@@ -136,3 +136,26 @@ describe('imputeRendering — per-form targets (verbs)', () => {
     expect(r.changed[0]!.after).toBe('which Elohim had created, and did create again')
   })
 })
+
+describe('supplied text and per-verse selection', () => {
+  const corpus2: Verse[] = [
+    v('GEN', 1, 4, 'God seeth that [it is] good, and God is pleased'),
+    v('GEN', 12, 1, 'go from thy earth'),
+    v('GEN', 1, 1, 'the heavens and the earth'),
+  ]
+  const lem = { 'GEN/1:4': ['H430'], 'GEN/12:1': ['H776'], 'GEN/1:1': ['H776'] }
+
+  test('never rewrites inside supplied [brackets]', () => {
+    const r = imputeRendering(corpus2, lem, { keys: ['H430'], replace: ['God', 'is'], rendering: 'Elohim' })
+    expect(r.changed[0]!.after).toBe('Elohim seeth that [it is] good, and Elohim elohim pleased')
+  })
+
+  test('verseFilter routes verses: apply / skip / ambiguous', () => {
+    const route = (id: string): 'apply' | 'skip' => (id === 'GEN/12:1' ? 'apply' : 'skip')
+    const r = imputeRendering(corpus2, lem, { keys: ['H776'], replace: ['earth'], rendering: 'land', verseFilter: route })
+    expect(r.changed.map(c => c.after)).toEqual(['go from thy land'])
+    const mixed = imputeRendering(corpus2, lem, { keys: ['H776'], replace: ['earth'], rendering: 'land', verseFilter: () => 'ambiguous' })
+    expect(mixed.ambiguous.length).toBe(2)
+    expect(mixed.changed).toEqual([])
+  })
+})

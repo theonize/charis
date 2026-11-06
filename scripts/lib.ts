@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url'
 
 export const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..')
 export const DICT_PATH = path.join(ROOT, 'dict.json')
+export const ASSIGN_PATH = path.join(ROOT, 'assign.json')
 export const BIBLE_CSV = path.join(ROOT, 'asset', 'bible.csv')
 export const XREF_CSV = path.join(ROOT, 'asset', 'xref.csv')
 

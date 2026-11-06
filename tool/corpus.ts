@@ -47,3 +47,14 @@ function splitRow(line: string): string[] {
 export function loadBibleCsv(path: string): Verse[] {
   return parseBibleCsv(fs.readFileSync(path, 'utf8'))
 }
+
+/**
+ * Supplied English — words with no source lexeme — is marked `[like this]` (P1/I8).
+ * Non-empty brackets only: a bare `[]` is the explicit empty-verse marker (I4).
+ */
+export const SUPPLIED_RE = /\[[^\[\]]+\]/g
+
+/** Verse text with supplied spans blanked: what lexical checks and imputation may see. */
+export function lexicalText(text: string): string {
+  return text.replace(SUPPLIED_RE, m => ' '.repeat(m.length))
+}

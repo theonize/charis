@@ -10,9 +10,12 @@ precedence: PREMISES > INVARIANTS > PROCESSES > TOOLING > this file.
 - The writing pass is dict-driven and near-deterministic: judgment goes into
   dict.json (rendering, `forms`, senses); application goes through
   `npm run impute` and the `imputation` skill. Never free-hand translate.
-- An English term belongs to exactly one dict entry (P1/I2, absolute — lint
-  errors). An entry may own several terms (`senses[]` alternates) and holds
-  at most one lemma per language (Hebrew + its Greek correspondent).
+- An English term (by spelling) belongs to exactly one dict entry (P1/I2,
+  absolute — lint errors). An entry may own several terms (`senses[]`
+  alternates); within a language each term binds to one lemma (`terms`).
+  Which term stands at each occurrence lives in `assign.json`, never in prose.
+- Supplied English (no source lexeme) is marked `[like this]`; never impute
+  into or out of brackets.
 - Never edit bible.csv without lemma justification from `data/lemmas.json`.
 - One lemma per commit; commit message per I6 (lemma, old/new rendering,
   rationale, outstanding count).
@@ -27,7 +30,8 @@ precedence: PREMISES > INVARIANTS > PROCESSES > TOOLING > this file.
 | Task | Command |
 |---|---|
 | find occurrences | `npm run glean -- <term> [--prefix]` / `npm run concord -- <word>` |
-| apply rendering | `npm run impute -- <id> --replace a,b [--ambiguous H###] [--write]` |
+| apply rendering | `npm run impute -- <id> --replace a,b [--term t] [--ambiguous H###] [--write]` |
+| check alternate selection | `npm run check-assign` |
 | verify family word-order | `npm run check-alignment -- <id> <id> ...` |
 | all invariants | `npm run check-all` (or `npm run verify` for full gate) |
 | transliterate | `npm run translit -- <heb|grk> <word>` |

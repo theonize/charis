@@ -68,12 +68,38 @@ describe('checkMapping (I1)', () => {
     expect(checkMapping(d, corpus2, lem).errors.some(e => /JOB\/1:1/.test(e))).toBe(true)
   })
 
-  test('an alternate (sense) rendering counts as present', () => {
+  describe('alternates and assignments', () => {
     const corpus2 = [v('GEN', 12, 1, 'Go from thy land'), v('GEN', 1, 2, 'and the earth was waste')]
     const lem = { 'GEN/12:1': ['H776'], 'GEN/1:2': ['H776'] }
     const senses = [{ id: 'land', definition: 'd', rendering: 'land', definingRefs: ['GEN/12:1'] }]
-    const d = dict(entry({ id: 'erets', rendering: 'earth', senses, lemmas: [{ lang: 'heb', strongs: 'H776', translit: null, lemma: null }] }))
-    expect(checkMapping(d, corpus2, lem).errors).toEqual([])
+    const erets = dict(entry({ id: 'erets', rendering: 'earth', senses, lemmas: [{ lang: 'heb', strongs: 'H776', translit: null, lemma: null }] }))
+
+    test('an alternate counts where assign.json selects it', () => {
+      const assign = { version: 1, assignments: { erets: { 'GEN/12:1': ['land'] } } }
+      expect(checkMapping(erets, corpus2, lem, assign).errors).toEqual([])
+    })
+
+    test('unassigned verse expects the primary — an alternate there is a miss', () => {
+      expect(checkMapping(erets, corpus2, lem).errors.some(e => /GEN\/12:1.*"earth"/.test(e))).toBe(true)
+    })
+
+    test('a lemma bound to one term expects that term', () => {
+      const corpus3 = [v('JOHN', 1, 14, 'the Word became flesh')]
+      const d = dict(entry({
+        id: 'hayah', rendering: 'be',
+        senses: [{ id: 'become', definition: 'd', rendering: 'become', definingRefs: ['JOHN/1:14'], forms: ['become', 'became'] }],
+        lemmas: [
+          { lang: 'heb', strongs: 'H1961', translit: null, lemma: null },
+          { lang: 'grk', strongs: 'G1096', translit: null, lemma: 'γίνομαι', terms: ['become'] },
+        ],
+      }))
+      expect(checkMapping(d, corpus3, { 'JOHN/1:14': ['γίνομαι'] }).errors).toEqual([])
+    })
+
+    test('supplied [bracketed] text never satisfies a lemma', () => {
+      const corpus4 = [v('GEN', 1, 2, 'and the [earth] was waste')]
+      expect(checkMapping(erets, corpus4, { 'GEN/1:2': ['H776'] }).errors.length).toBe(1)
+    })
   })
 
   test('candidate entries are skipped entirely', () => {
