@@ -65,6 +65,15 @@ function schemaValidator(): ValidateFunction {
   return compiled
 }
 
+/**
+ * Every English term an entry owns (P1/I2): primary rendering, listed forms,
+ * and each sense (alternate) rendering — lowercased, deduplicated.
+ */
+export function ownedTerms(e: Entry): string[] {
+  const terms = [e.rendering, ...(e.forms ?? []), ...(e.senses ?? []).map(s => s.rendering)]
+  return [...new Set(terms.filter((t): t is string => !!t).map(t => t.toLowerCase()))]
+}
+
 /** Schema validation (draft 2020-12) + cross-field rules JSON Schema can't express. */
 export function lintDict(dict: Dict): LintResult {
   const errors: string[] = []
@@ -78,13 +87,19 @@ export function lintDict(dict: Dict): LintResult {
 
   const ids = new Set<string>()
   const strongsOwner = new Map<string, string>()
-  const renderingOwner = new Map<string, string>()
+  const termOwner = new Map<string, string>()
 
   for (const e of dict.entries ?? []) {
     const tag = `entry "${e.id}"`
 
     if (ids.has(e.id)) errors.push(`${tag}: duplicate id`)
     ids.add(e.id)
+
+    // P1 source term = at most one lemma per language (Hebrew/Aramaic lemma + its one Greek correspondent).
+    const langs = new Map<string, number>()
+    for (const l of e.lemmas ?? []) langs.set(l.lang, (langs.get(l.lang) ?? 0) + 1)
+    for (const [lang, n] of langs)
+      if (n > 1) errors.push(`${tag}: ${n} ${lang} lemmas — a source term holds at most one lemma per language (P1)`)
 
     for (const l of e.lemmas ?? []) {
       if (!l.lemma && !l.translit)
@@ -103,15 +118,14 @@ export function lintDict(dict: Dict): LintResult {
       else strongsOwner.set(l.strongs, e.id)
     }
 
-    if (e.rendering) {
-      const key = e.rendering.toLowerCase()
-      const owner = renderingOwner.get(key)
-      if (owner)
-        warnings.push(`${tag}: rendering "${e.rendering}" also used by "${owner}" (I2 collision — record rationale if intentional)`)
-      else renderingOwner.set(key, e.id)
-    } else if (e.status === 'candidate') {
-      warnings.push(`${tag}: candidate with no provisional rendering`)
+    // I2 (absolute): an English term is owned by exactly one entry — no intentional-collision escape.
+    for (const term of ownedTerms(e)) {
+      const owner = termOwner.get(term)
+      if (owner) errors.push(`${tag}: English term "${term}" already owned by "${owner}" (I2 collision)`)
+      else termOwner.set(term, e.id)
     }
+    if (!e.rendering && e.status === 'candidate')
+      warnings.push(`${tag}: candidate with no provisional rendering`)
   }
 
   return { errors, warnings }

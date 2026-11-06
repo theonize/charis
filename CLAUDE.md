@@ -10,6 +10,9 @@ precedence: PREMISES > INVARIANTS > PROCESSES > TOOLING > this file.
 - The writing pass is dict-driven and near-deterministic: judgment goes into
   dict.json (rendering, `forms`, senses); application goes through
   `npm run impute` and the `imputation` skill. Never free-hand translate.
+- An English term belongs to exactly one dict entry (P1/I2, absolute — lint
+  errors). An entry may own several terms (`senses[]` alternates) and holds
+  at most one lemma per language (Hebrew + its Greek correspondent).
 - Never edit bible.csv without lemma justification from `data/lemmas.json`.
 - One lemma per commit; commit message per I6 (lemma, old/new rendering,
   rationale, outstanding count).

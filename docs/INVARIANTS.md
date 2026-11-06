@@ -2,17 +2,17 @@
 
 Machine-checkable rules. Every commit to the text must hold these. Each invariant should eventually have a script in `scripts/` (see TOOLING.md) that verifies it; CI-able.
 
-## I1 — One-to-one lemma mapping
+## I1 — Source-side mapping
 
-For every source lemma L with a decided rendering R in DICT: every occurrence of L in the corpus renders as a conjugation of R (or a documented sense-split entry). No occurrence of L renders as anything else.
+For every source term S with decided terms R₁…Rₙ in DICT (primary `rendering` + `senses[]` alternates): every occurrence of S renders as a conjugation of one of R₁…Rₙ — the primary by default, an alternate only where its recorded selection says so. No occurrence of S renders as anything else.
 
-**Check:** join corpus occurrences (by Strong's/lemma ID) against DICT; flag mismatches.
+**Check:** join corpus occurrences (by Strong's/lemma ID) against DICT; flag verses containing none of S's terms. (Selection-exactness — alternate used at exactly its recorded verses — needs per-occurrence assignment data; not yet checked.)
 
-## I2 — No English collisions
+## I2 — English-term ownership (absolute)
 
-No two distinct source lemmas share the same English rendering, unless DICT explicitly records the collision as intentional (with rationale).
+Every English term claimed in DICT — primary rendering, listed `forms`, and every sense rendering; compared case-insensitively — is owned by exactly one entry. There is no intentional-collision exception: genuine Hebrew↔Greek correspondence is expressed by pairing both lemmas in one entry (P1), not by two entries sharing English. An entry holds at most one lemma per language.
 
-**Check:** invert the DICT mapping; flag duplicate English targets.
+**Check:** `dict-lint` / `check-collisions` — invert every entry's owned terms; any term with two owners is an error.
 
 ## I3 — Transliteration determinism
 

@@ -2,9 +2,13 @@
 
 The axioms of the Charis translation. Everything else in `docs/` derives from these. If a proposed change conflicts with a premise, the change loses — or the premise is amended here, explicitly, in version control.
 
-## P1 — Lexical equivalence
+## P1 — Lexical equivalence (reversible)
 
-One original-language lemma maps to one English lemma (or one transliterated loanword), everywhere it occurs, modulo grammatical conjugation. Translation is a function, not an art of local paraphrase. Where a lemma genuinely carries distinct senses, the split is documented in the dictionary (DICT) as separate, enumerated sense entries — never decided silently verse-by-verse.
+Every English term in the text traces to exactly **one** source term, everywhere it occurs, modulo grammatical conjugation: from any English word, its original is recoverable. English → source is a function; this is the invariant that does not bend.
+
+A *source term* is one Hebrew/Aramaic lemma together with at most one approved Greek correspondent (P2) — e.g. `elohim` + `θεός`. A source term normally owns one English term (or one transliterated loanword). It **may** own more than one, provided none of them is owned by any other source term: the English vocabulary is partitioned by source, never shared. Each additional term is an enumerated alternate in the dictionary (DICT), with the rule or verse list that selects it — never decided silently verse-by-verse.
+
+(Amended 2026-11-06: previously "one lemma ↔ one English lemma" with a sense-split exception. The revision keeps reversibility absolute and makes multiplicity on the source side explicit and bounded.)
 
 ## P2 — Canonical consistency
 

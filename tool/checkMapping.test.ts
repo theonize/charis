@@ -68,6 +68,14 @@ describe('checkMapping (I1)', () => {
     expect(checkMapping(d, corpus2, lem).errors.some(e => /JOB\/1:1/.test(e))).toBe(true)
   })
 
+  test('an alternate (sense) rendering counts as present', () => {
+    const corpus2 = [v('GEN', 12, 1, 'Go from thy land'), v('GEN', 1, 2, 'and the earth was waste')]
+    const lem = { 'GEN/12:1': ['H776'], 'GEN/1:2': ['H776'] }
+    const senses = [{ id: 'land', definition: 'd', rendering: 'land', definingRefs: ['GEN/12:1'] }]
+    const d = dict(entry({ id: 'erets', rendering: 'earth', senses, lemmas: [{ lang: 'heb', strongs: 'H776', translit: null, lemma: null }] }))
+    expect(checkMapping(d, corpus2, lem).errors).toEqual([])
+  })
+
   test('candidate entries are skipped entirely', () => {
     const d = dict(entry({ id: 'chasid', rendering: 'devoted', status: 'candidate', lemmas: [{ lang: 'heb', strongs: 'H2623', translit: null, lemma: null }] }))
     const r = checkMapping(d, corpus, lemmas)

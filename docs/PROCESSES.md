@@ -20,20 +20,21 @@ The engine of the whole project.
 1. Source spelling → mapping table (Hebrew: revised Michigan/Claremont; Greek: README table) → transliteral. Fully mechanical; no judgment calls (I3).
 2. If a mapping table changes, regenerate all affected transliterals in one commit and document the mapping change.
 
-## PR3 — Sense-split adjudication
+## PR3 — Alternate-term adjudication
 
-When one lemma resists a single rendering:
+When one source term resists a single English term (P1 permits several, each owned by it alone):
 1. Cluster occurrences by usage context (AI-assisted).
-2. Draft sense entries: definition, defining verses, proposed rendering per sense.
-3. Adversarial pass: attempt to collapse the split back to one rendering. Split survives only if collapse demonstrably loses meaning.
-4. Record all senses in DICT with the adjudication note.
+2. Draft alternates as `senses[]`: definition, defining verses, proposed English term. Every proposed term must be unowned in DICT (I2) — check against the terms other lemmas naturally claim, not just current entries.
+3. Adversarial pass: attempt to collapse back to the primary rendering. An alternate survives only if collapse demonstrably loses meaning. Note where the choice between terms is itself interpretive (e.g. *earth*/*land* in the flood narrative) — the alternate then imports interpretation at those verses.
+4. Before `decided`: the selection must be exhaustive and mechanical — a morphological condition or an explicit verse list per alternate; the primary covers everything else.
+5. Record in DICT with the adjudication note.
 
 ## PR4 — Collision resolution
 
-When I2 flags two lemmas sharing an English word:
-1. Determine which lemma has stronger claim (frequency, precision of fit).
-2. Re-run PR1 for the losing lemma.
-3. If the collision is intentional (genuine synonymy across languages), record rationale in DICT.
+When I2 flags an English term with two owners:
+1. Determine which source term has the stronger claim (frequency, precision of fit).
+2. Re-run PR1 for the losing term.
+3. If the two lemmas are genuine cross-language correspondents (Hebrew + Greek, P2), merge them into one entry. There are no intentional collisions.
 
 ## PR5 — Xref / quotation audit
 
